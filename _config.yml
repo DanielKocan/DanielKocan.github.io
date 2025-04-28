@@ -1,7 +1,7 @@
 ### Site Settings ###
 title               : Daniel Kočan
 description         : |
-                      I love :coffee:,
+                      I love coffee :coffee:,
                       I love games 🎮,
                       I love coding 🧑🏻‍💻 (sometimes).
 baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
@@ -34,7 +34,7 @@ author:
 # gitlab            : your_username
 # instagram         : your_username
 # kaggle            : your_username
-  linkedin          : your_username
+  linkedin          : danielkočan
   medium            : your_username
 # soundcloud        : your_username
 # spotify           : your_username
@@ -45,6 +45,7 @@ author:
 # vimeo             : your_username
 # youtube           : your_channel_name
 # keybase           : your_username
+  itch-io           :
 
 
 ### Posts ###
