@@ -1,6 +1,6 @@
 ### Site Settings ###
 title               : Daniel Kočan
-description         : >-
+description         : |
                       I love :coffee:,
                       I love games 🎮,
                       I love coding 🧑🏻‍💻 (sometimes).
@@ -19,7 +19,7 @@ plugins:
 nav_exclude:                                            # The following paths are excluded from navbar
   - pages/tags.html
   - pages/404.html
-  - pages/index.md
+  #- pages/index.md
 
 
 ### Author Info ###
