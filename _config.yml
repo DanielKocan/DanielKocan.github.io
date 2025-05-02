@@ -1,8 +1,10 @@
 ### Site Settings ###
 title               : Daniel Kočan
-description         : | 
+description         : >-
                       I love coffee :coffee:,
+                      <br>
                       I love games 🎮,
+                      <br>
                       I love coding 🧑🏻‍💻 (sometimes).
 baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : DanielKocan/DanielKocan.github.io      # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
@@ -19,7 +21,7 @@ plugins:
 nav_exclude:                                            # The following paths are excluded from navbar
   - pages/tags.html
   - pages/404.html
-  #- pages/index.md
+  - pages/index.md
 
 
 ### Author Info ###

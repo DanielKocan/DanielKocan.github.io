@@ -5,10 +5,21 @@ permalink: /about/
 weight: 3
 ---
 
-# **About Me**
+# :wave: Hello, Labas, Witam, Привет! :wave:
 
-Hi I am **{{ site.author.name }}** :wave:,<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+[![Linkedin](https://img.shields.io/badge/LinkedIn-blue?logo=Linkedin&style=flat-square)](https://www.linkedin.com/in/danielko%C4%8Dan/)
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=GitHub&style=flat-square&color=grey)](https://github.com/DanielKocan)
+
+I am **{{ site.author.name }}**,<br>
+Game programming student willing to gain experience in Unreal Engine gameplay programming. <br>
+<br>
+📚 Currently a second-year student at **Breda University of Applied Sciences**, <br>
+💻 Writing C++ scripts for Unreal Engine projects <br>
+🔗 Experienced with GitHub and Perforce collaboration <br>
+💡 Always trying to follow the KISS (Keep It Simple, Stupid) principle <br>
+🎯 Big fan of FPS games like Counter-Strike, Apex Legends, DOOM and more <br>
+<br>
+🌟 Always open to trying something new or just having a chat - feel free to get in touch! ^^. <br>
 
 <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}

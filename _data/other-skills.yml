@@ -1,7 +1,19 @@
-- name: Adobe Photoshop
-  percentage: 95
+- name: Perforce & Github (version control systems)
+  percentage: 100
+  showPercentage: false
   color: info
 
-- name: Adobe Illustrator
-  percentage: 90
+- name: Physics libraries (Jolt & Bullet)
+  percentage: 100
+  showPercentage: false
+  color: light 
+
+- name: Agile Methodologies
+  percentage: 100
+  showPercentage: false
   color: success
+
+- name: 4 Fluent Languages (English, Lithuanian, Polish, Russian)
+  percentage: 100
+  showPercentage: false
+  color: secondary 
