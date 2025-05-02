@@ -11,9 +11,9 @@
 - name: GDScript
   percentage: 100
   showPercentage: false
-  color: secondary
+  color: warning
 
 - name: C# in Unity
   percentage: 100
   showPercentage: false
-  color: warning
+  color: secondary
