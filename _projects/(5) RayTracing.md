@@ -1,12 +1,12 @@
 ---
-name: Voxel Raytracing Engine + Paintball Game
-tools: [C++, Graphics]
+name: Voxel Raytracing + Pinball Game
+tools: [C++, Graphics, Raytracing]
 image: /assets/projects/Raytracing/main.gif
 description: In this challenging graphics and physics programming project, I developed a voxel-based raytracing in C++ and turned it into paintball game!
 ---
 
 # Voxel Raytracing Engine + Paintball Game  
-#### In this challenging graphics and physics programming module, I developed a voxel-based raytracing engine in C++ — and as a creative extension, I turned it into a playable paintball game!
+#### In this challenging graphics and physics programming module, I developed a voxel-based raytracing engine in C++ - and as a creative extension, I turned it into a playable paintball game!
 
 ![preview](../assets/projects/Raytracing/beggining.gif)
 
@@ -38,9 +38,9 @@ description: In this challenging graphics and physics programming project, I dev
 
 ![preview](../assets/projects/Raytracing/Wow.png)
 
-✅ Creative Expansion: Paintball Game
+✅ Creative Expansion: Pinball Game
 
-* Leveraged the raytracing engine to develop a fun paintball game where players can shoot paintballs into the voxel environment, blending graphics programming with gameplay mechanics.   
+* Leveraged the raytracing engine to develop a fun pinball game where players can play pinballs in voxel environment, blending graphics programming with gameplay mechanics.   
 
 ![preview](../assets/projects/Raytracing/main.gif)
 
@@ -63,7 +63,7 @@ More pictures:
 * Performance profiling and optimization strategies
 * Combining visual engines with interactive physics and gameplay systems
 
-It was a demanding but incredibly rewarding project where I bridged graphics theory with hands-on game creation.
+It was a demanding but incredibly rewarding project where I bridged graphics theory with hands-on game creation :)
 
 <p class="text-center">
 {% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}
