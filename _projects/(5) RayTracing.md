@@ -1,30 +1,72 @@
 ---
-name: Ray tracing
+name: Voxel Raytracing Engine + Paintball Game
 tools: [C++, Graphics]
 image: /assets/projects/Raytracing/main.gif
-description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
+description: In this challenging graphics and physics programming project, I developed a voxel-based raytracing in C++ and turned it into paintball game!
 ---
 
-# C++ FPS Engine
+# Voxel Raytracing Engine + Paintball Game  
+#### In this challenging graphics and physics programming module, I developed a voxel-based raytracing engine in C++ — and as a creative extension, I turned it into a playable paintball game!
 
-The Movies Project is something like **Netflix**, the only difference is that **it's not real**! It doesn't exist! I just created it to demonstrate how the **showcase** page looks like and how you can write whatever you want with full markdown support.
+![preview](../assets/projects/Raytracing/beggining.gif)
 
-![preview](../assets/projects/FPSEngine/Main.png)
+✨ Key Features I Built   
+✅ Advanced Lighting & Shadows
 
-## Search Movies
+* Added point lights, spotlights, and directional lights, all casting realistic shadows using shadow rays.
+* Implemented efficient light visibility testing to enhance scene realism.
 
-![search](https://www.sketchappsources.com/resources/source-image/microsoft-windows-10-virtual-keyboard-diogo-sousa.png)
+![preview](../assets/projects/Raytracing/pointLightBuasLogo.gif)
+
+✅ Material System
+
+* Developed a robust material framework: reflective surfaces, recursive reflections (with recursion caps), and physically accurate dielectric (glass-like) materials.
+
+![preview](../assets/projects/Raytracing/breaks.png)
+![preview](../assets/projects/Raytracing/image168.png)
+
+✅ Anti-Aliasing & Camera Improvements
+
+* Replaced the simple pinhole camera with a camera supporting an aperture, significantly improving image quality through basic anti-aliasing.
+
+![preview](../assets/projects/Raytracing/image31.png)
+
+✅ New Primitives & Scene Elements
+
+* Added sphere primitives.
+* Added a skydome for a satisfying environmental backdrop.
+
+![preview](../assets/projects/Raytracing/Wow.png)
+
+✅ Creative Expansion: Paintball Game
+
+* Leveraged the raytracing engine to develop a fun paintball game where players can shoot paintballs into the voxel environment, blending graphics programming with gameplay mechanics.   
+
+![preview](../assets/projects/Raytracing/main.gif)
+
+✅ Performance Profiling & Optimization
+
+* Profiled the raytracer to identify bottlenecks and applied targeted optimizations for faster rendering.
+* Integrated ray-based physics to roll a ball across the voxel world, combining visual rendering with interactive simulation.
+
+More pictures:   
+![preview](../assets/projects/Raytracing/image154.gif)
+![preview](../assets/projects/Raytracing/image14.png)
+![preview](../assets/projects/Raytracing/image50.png)
+![preview](../assets/projects/Raytracing/image162.png)
+
+### 💡 What I Learned
+* This project deeply strengthened my understanding of:
+* Recursive algorithms (especially in reflections)
+* Light transport and shadow calculation
+* Materials and surface interaction models
+* Performance profiling and optimization strategies
+* Combining visual engines with interactive physics and gameplay systems
+
+It was a demanding but incredibly rewarding project where I bridged graphics theory with hands-on game creation.
 
 <p class="text-center">
-{% include elements/button.html link="https://github.com/yousinix/portfolYOU" text="Learn More" %}
+{% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}
 </p>
 
-```c
-/* hello.c */
-#import <stdio.h>
-
-int main(int argc, char *argv[]) {
-  printf("Hello, world!");
-  return 0;
-}
-```
+![BUAS](../assets/Logo_BUas_RGB.png)
