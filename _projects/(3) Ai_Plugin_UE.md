@@ -37,3 +37,9 @@ The plugin connects Unreal Engine NPCs to:
 🧠 Optimization Thinking — I had to make sure the plugin runs efficiently even under stress, especially when using local models.
 
 💬 Study Planning & Reflection — Throughout the project, I set weekly goals, evaluated my progress and adapted my plans when challenges came up. I also reflected on what worked and what I’d do differently next time.
+
+<p class="text-center">
+{% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}
+</p>
+
+![BUAS](../assets/Logo_BUas_RGB.png)
