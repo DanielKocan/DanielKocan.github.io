@@ -5,7 +5,7 @@ description         : >-
                       <br>
                       I love games 🎮
                       <br>
-                      I love coding 🧑🏻‍💻 (sometimes)
+                      I love coding 🧑🏻‍💻
 baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : DanielKocan/DanielKocan.github.io      # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : yousinix/portfolYOU
