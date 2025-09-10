@@ -1,9 +1,13 @@
 ### Site Settings ###
 title               : Daniel Kočan
 description         : >-
+                      I love volleyball 🏐
+                      <br>
                       I love coffee :coffee:
                       <br>
-                      I love games 🎮
+                      I love FPS games 🎮
+                      <br>
+                      I love Pokemon TCG 🃏
                       <br>
                       I love coding 🧑🏻‍💻
 baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
