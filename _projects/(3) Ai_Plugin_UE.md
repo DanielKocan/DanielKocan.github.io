@@ -7,10 +7,12 @@ description: I developed a plugin for Unreal Engine that allows developers to ea
 
 # Generative AI Plugin for Unreal Engine (C++ Study Project)
 
-✨ What It Does   
-The plugin connects Unreal Engine NPCs to:  
-🌐 Online models like OpenAI’s GPT (via API)   
-💻 Offline local models using llama.cpp (runs on the player’s machine)
+✨ What It Does?  ✨
+
+**The plugin connects Unreal Engine NPCs to:**
+
+🌐 **Online models like OpenAI’s GPT (via API)**   
+💻 **Offline local models using llama.cpp (runs on the player’s machine)**
 
 # [LINK TO MY POST](https://medium.com/@danuk2004/unlock-the-future-build-a-generative-ai-plugin-for-unreal-engine-with-c-offline-and-online-3f290accc977)
 

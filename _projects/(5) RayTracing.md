@@ -47,7 +47,6 @@ description: In this challenging graphics and physics programming project, I dev
 ✅ Performance Profiling & Optimization
 
 * Profiled the raytracer to identify bottlenecks and applied targeted optimizations for faster rendering.
-* Integrated ray-based physics to roll a ball across the voxel world, combining visual rendering with interactive simulation.
 
 More pictures:   
 ![preview](../assets/projects/Raytracing/image154.gif)
@@ -56,7 +55,7 @@ More pictures:
 ![preview](../assets/projects/Raytracing/image162.png)
 
 ### 💡 What I Learned
-* This project deeply strengthened my understanding of:
+This project deeply strengthened my understanding of:
 * Recursive algorithms (especially in reflections)
 * Light transport and shadow calculation
 * Materials and surface interaction models
