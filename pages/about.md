@@ -13,14 +13,15 @@ weight: 3
 I am **{{ site.author.name }}**,<br>
 Game programming student willing to gain experience in Unreal Engine gameplay programming. <br>
 <br>
-📚 Currently a second-year student at **Breda University of Applied Sciences**, <br>
+📚 Currently a third-year student at **Breda University of Applied Sciences**, <br>
 💻 Writing C++ scripts for Unreal Engine projects <br>
 🔗 Experienced with GitHub and Perforce collaboration <br>
 💡 Always trying to follow the KISS (Keep It Simple, Stupid) principle :D<br>
 🎯 Big fan of FPS games like Counter-Strike, Apex Legends, DOOM and more <br>
 <br>
 🌟 Always open to trying something new or just having a chat - feel free to get in touch! ^^. <br>
-
+Gmail: danuk2004@gmail.com
+<br>
 <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
 {% include about/skills.html title="Other Skills" source=site.data.other-skills %}
