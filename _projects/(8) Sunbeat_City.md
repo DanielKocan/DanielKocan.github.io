@@ -22,7 +22,7 @@ In the first sprint, I was heavily involved in planning. I actively participated
 
 ![preview](../assets/projects/SunbeatCity/CrowdWithMassAI.gif)
 
-I experimented with Unreal’s Mass AI system, prototyped a basic crowd, and shared results with the team. Even though the system had limited documentation and flexibility, this exploration gave us confidence that large-scale NPCs were possible.
+I experimented with Unreal's Mass AI system, prototyped a basic crowd, and shared results with the team. Even though the system had limited documentation and flexibility, this exploration gave us confidence that large-scale NPCs were possible.
 
 By the second sprint, the focus shifted to prototyping. After further discussions with the designers, we decided to scale down the crowd to around thirty NPCs, which made Behavior Trees and NavMesh a better fit. 
 

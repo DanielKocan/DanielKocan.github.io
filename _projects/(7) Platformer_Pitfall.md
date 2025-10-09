@@ -14,7 +14,7 @@ This project was my first project at BUAS and a personal deep dive into building
 ### Custom Rendering System
 
 * Designed a tile-based map renderer to load and display levels using data from Tiled.
-* Wrote all rendering logic directly in C++ without relying on a prebuilt engine.
+* Wrote all logic to correctly connect graphics with gameplay logic directly in C++ without relying on a prebuilt engine.
 
 ![preview](../assets/projects/PlatformerPitfall/Tiled%20level.png)
 
@@ -34,7 +34,7 @@ This project was my first project at BUAS and a personal deep dive into building
 ### Enemies & Challenges
 
 * Added enemies with simple AI behaviors to challenge the player.
-* Introduced collectable items that reward exploration and increase the player’s score.
+* Added collectable items, checkpoints and saving data logic
 
 ### Game Loop & UI
 
@@ -46,7 +46,7 @@ This project was my first project at BUAS and a personal deep dive into building
 # 💡 What I Learned
 This was one of my most valuable learning experiences because:
 
-* I built all core systems myself: rendering from Tiled, input, physics, collisions, state management.
+* I built almost all core systems myself: rendering from Tiled, input, physics, collisions, state management.
 * I improved my understanding of math and geometry as applied to 2D games.
 * I got hands-on practice with tooling workflows: using Perforce for version control, Visual Studio for development, and Tiled for level design.
 * I learned how to manage a full game project solo, from prototype to working product.
