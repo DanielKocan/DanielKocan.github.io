@@ -5,7 +5,7 @@ image: /assets/projects/PathfindingAndCollisions/CustomCollisinAndShootingGif.gi
 description: I built key components of a 2D game engine focused on pathfinding, collision detection and physics.
 ---
 
-For this project, I built key components of a 2D game engine focused on pathfinding, collision detection, and physics. Even though it was 2D, this work gave me deep insights into the systems behind major engines like Unreal and Unity — showing how much complexity is hidden behind the scenes, even in “simple” games.
+For this project, I built key components of a 2D game engine focused on pathfinding, collision detection, and physics. Even though it was 2D, this work gave me deep insights into the systems behind major engines like Unreal and Unity - showing how much complexity is hidden behind the scenes, even in “simple” games.
 
 ### ✨ What I Built
 

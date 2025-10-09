@@ -24,21 +24,21 @@ description: I developed a plugin for Unreal Engine that allows developers to ea
 
 ### Why This Was Challenging ?
 
-⚙ Complex Integration — Connecting Unreal Engine’s C++ systems with external LLMs (both cloud-based and local) required deep knowledge of both Unreal’s architecture and how LLMs work. It wasn’t just a plug-and-play setup — I had to handle performance, memory, threading, and error handling carefully.
+⚙ Complex Integration - Connecting Unreal Engine’s C++ systems with external LLMs (both cloud-based and local) required deep knowledge of both Unreal’s architecture and how LLMs work. It wasn’t just a plug-and-play setup - I had to handle performance, memory, threading, and error handling carefully.
 
-🔌 Multiple Backends — Supporting both online and offline models added extra layers of difficulty. Llama.cpp works very differently from an online API, so I had to design a flexible system that could switch between them.
+🔌 Multiple Backends - Supporting both online and offline models added extra layers of difficulty. Llama.cpp works very differently from an online API, so I had to design a flexible system that could switch between them.
 
-🎯 Customizable & Usable — I wanted the plugin to be useful to designers (not just programmers), so I focused on making it easy to configure, with clear options and settings inside Unreal Engine.
+🎯 Customizable & Usable - I wanted the plugin to be useful to designers (not just programmers), so I focused on making it easy to configure, with clear options and settings inside Unreal Engine.
 
 ### What I Learned
 
-🔍 Research & Criteria Setting — As part of this study project, I had to research multiple technical solutions, compare them and set clear criteria for what the plugin should achieve. This taught me how to balance feasibility, performance, and user needs when planning a project.
+🔍 Research & Criteria Setting - As part of this study project, I had to research multiple technical solutions, compare them and set clear criteria for what the plugin should achieve. This taught me how to balance feasibility, performance, and user needs when planning a project.
 
-🛠 Technical Skill Growth — I significantly improved my C++ and Unreal Engine skills, especially in areas like plugin development, engine integration and working with external libraries.
+🛠 Technical Skill Growth - I significantly improved my C++ and Unreal Engine skills, especially in areas like plugin development, engine integration and working with external libraries.
 
-🧠 Optimization Thinking — I had to make sure the plugin runs efficiently even under stress, especially when using local models.
+🧠 Optimization Thinking - I had to make sure the plugin runs efficiently even under stress, especially when using local models.
 
-💬 Study Planning & Reflection — Throughout the project, I set weekly goals, evaluated my progress and adapted my plans when challenges came up. I also reflected on what worked and what I’d do differently next time.
+💬 Study Planning & Reflection - Throughout the project, I set weekly goals, evaluated my progress and adapted my plans when challenges came up. I also reflected on what worked and what I’d do differently next time.
 
 <p class="text-center">
 {% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}
