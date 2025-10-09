@@ -12,19 +12,19 @@ This was a hardware-constrained project, so I had to optimize performance carefu
 ![preview](../assets/projects/RaspberryPI3DPitfall/main.gif)
 
 # ✨ Core Features I Built
-### ✅ Physics-Driven World
+### Physics-Driven World
 
 * Set up a full Bullet physics world, populating it with rigid bodies and managing physical interactions.
 * Created accurate collision detection and response systems.
 
-### ✅ Rendering Pipeline
+### Rendering Pipeline
 
 * Integrated OpenGL shaders, camera systems, and lighting to display the game world.
 * Extracted physics data from Bullet and used it to render debug and gameplay visuals.
 
 ![preview](../assets/projects/RaspberryPI3DPitfall/image8.png)
 
-### ✅ Custom Models & World
+### Custom Models & World
 
 * Loaded and displayed OBJ models, turning them into active physics shapes.
 * Built a tile-based map system to lay out the runner’s environment.
@@ -32,17 +32,17 @@ This was a hardware-constrained project, so I had to optimize performance carefu
 ![preview](../assets/projects/RaspberryPI3DPitfall/image158.png)
 ![preview](../assets/projects/RaspberryPI3DPitfall/image157.png)
 
-### ✅ Player & Enemies
+### Player & Enemies
 
 * Implemented player controls with applied physics forces, carefully tuning for responsive gameplay.
 * Created a system of enemies using object-oriented programming, supporting multiple NPCs.
 
-### ✅ UI & Menus
+### UI & Menus
 
 * Added in-game menus.
 * Used Dear ImGui for real-time debug information and output.
 
-### ✅ Final Touches
+### Final Touches
 
 * Polished the game with sound integration, shader effects, and optimized configurations for Raspberry Pi hardware limits.
 

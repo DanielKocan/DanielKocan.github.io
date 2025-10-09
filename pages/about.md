@@ -11,10 +11,10 @@ weight: 3
 [![GitHub](https://img.shields.io/badge/GitHub-000000?logo=GitHub&style=flat-square&color=grey)](https://github.com/DanielKocan)
 
 I am **{{ site.author.name }}**,<br>
-Game programming student willing to gain experience in Unreal Engine gameplay programming. <br>
+Game programming student who is currently willing to gain experience in Unreal Engine gameplay, network and AI programming. <br>
 <br>
 📚 Currently a third-year student at **Breda University of Applied Sciences**, <br>
-💻 Writing C++ scripts for Unreal Engine projects <br>
+💻 Mostly riting C++ code for Unreal Engine projects <br>
 🔗 Experienced with GitHub and Perforce collaboration <br>
 💡 Always trying to follow the KISS (Keep It Simple, Stupid) principle :D<br>
 🎯 Big fan of FPS games like Counter-Strike, Apex Legends, DOOM and more <br>

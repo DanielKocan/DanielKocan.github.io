@@ -11,19 +11,19 @@ This project was my first project at BUAS and a personal deep dive into building
 ![preview](../assets/projects/PlatformerPitfall/Frog.gif)
 
 # ✨ Core Features I Built
-### ✅ Custom Rendering System
+### Custom Rendering System
 
 * Designed a tile-based map renderer to load and display levels using data from Tiled.
 * Wrote all rendering logic directly in C++ without relying on a prebuilt engine.
 
 ![preview](../assets/projects/PlatformerPitfall/Tiled%20level.png)
 
-### ✅ Player Mechanics
+### Player Mechanics
 
 * Developed a fully controllable player with smooth movement, jumping, climbing ladders, and logic for swimming
 ![preview](../assets/projects/PlatformerPitfall/rope.gif)
 
-### ✅ World Interaction
+### World Interaction
 
 * Integrated dynamic objects like ropes, balloons and ladders.
 * Designed collision detection systems from scratch to handle interactions between the player, environment and enemies.
@@ -31,12 +31,12 @@ This project was my first project at BUAS and a personal deep dive into building
 ![preview](../assets/projects/PlatformerPitfall/Collision.png)
 ![preview](../assets/projects/PlatformerPitfall/balloon.gif)
 
-### ✅ Enemies & Challenges
+### Enemies & Challenges
 
 * Added enemies with simple AI behaviors to challenge the player.
 * Introduced collectable items that reward exploration and increase the player’s score.
 
-### ✅ Game Loop & UI
+### Game Loop & UI
 
 * Built the entire game loop and state management system in C++.
 * Added a scoring system, a title screen and an end-screen to make the game feel complete.

@@ -11,40 +11,40 @@ description: In this challenging graphics and physics programming project, I dev
 ![preview](../assets/projects/Raytracing/beggining.gif)
 
 ✨ Key Features I Built   
-✅ Advanced Lighting & Shadows
+**Advanced Lighting & Shadows**
 
 * Added point lights, spotlights, and directional lights, all casting realistic shadows using shadow rays.
 * Implemented efficient light visibility testing to enhance scene realism.
 
 ![preview](../assets/projects/Raytracing/pointLightBuasLogo.gif)
 
-✅ Material System
+**Material System**
 
 * Developed a robust material framework: reflective surfaces, recursive reflections (with recursion caps), and physically accurate dielectric (glass-like) materials.
 
 ![preview](../assets/projects/Raytracing/breaks.png)
 ![preview](../assets/projects/Raytracing/image168.png)
 
-✅ Anti-Aliasing & Camera Improvements
+**Anti-Aliasing & Camera Improvements**
 
 * Replaced the simple pinhole camera with a camera supporting an aperture, significantly improving image quality through basic anti-aliasing.
 
 ![preview](../assets/projects/Raytracing/image31.png)
 
-✅ New Primitives & Scene Elements
+**New Primitives & Scene Elements**
 
 * Added sphere primitives.
 * Added a skydome for a satisfying environmental backdrop.
 
 ![preview](../assets/projects/Raytracing/Wow.png)
 
-✅ Creative Expansion: Pinball Game
+**Creative Expansion: Pinball Game**
 
 * Leveraged the raytracing engine to develop a fun pinball game where players can play pinballs in voxel environment, blending graphics programming with gameplay mechanics.   
 
 ![preview](../assets/projects/Raytracing/main.gif)
 
-✅ Performance Profiling & Optimization
+**Performance Profiling & Optimization**
 
 * Profiled the raytracer to identify bottlenecks and applied targeted optimizations for faster rendering.
 
