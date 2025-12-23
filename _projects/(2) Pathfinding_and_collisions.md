@@ -3,6 +3,7 @@ name: Pathfinding & Physics (C++)
 tools: [C++, PC, Custom Physics, ECS]
 image: /assets/projects/PathfindingAndCollisions/CustomCollisinAndShootingGif.gif
 description: I built key components of a 2D game engine focused on pathfinding, collision detection and physics.
+order: 0
 ---
 
 For this project, I built key components of a 2D game engine focused on pathfinding, collision detection, and physics. Even though it was 2D, this work gave me deep insights into the systems behind major engines like Unreal and Unity - showing how much complexity is hidden behind the scenes, even in “simple” games.

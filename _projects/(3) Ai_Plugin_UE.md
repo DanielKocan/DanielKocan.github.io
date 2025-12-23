@@ -3,6 +3,7 @@ name: AI Plugin For Unreal Engine
 tools: [C++, Unreal Enigne, AI, LLM]
 image: /assets/projects/AiPluginUE/AiTextForge.gif
 description: I developed a plugin for Unreal Engine that allows developers to easily create NPCs (non-player characters) powered by large language models (LLMs).
+order: 0
 ---
 
 # Generative AI Plugin for Unreal Engine (C++ Study Project)
