@@ -8,7 +8,7 @@
   showPercentage: false
   color: light 
 
-- name: Agile Methodologies
+- name: Agile Methodologies (Jira & Confluence)
   percentage: 100
   showPercentage: false
   color: success

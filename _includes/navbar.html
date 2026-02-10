@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>{{ site.title }}</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto align-items-center">
+
+      <!-- Social Icons - Always visible with hover effects -->
+      {% if site.author.github %}
+      <a class="nav-item nav-link social-icon" href="https://github.com/{{ site.author.github }}" target="_blank" title="GitHub" rel="noopener noreferrer">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      {% endif %}
+
+      {% if site.author.linkedin %}
+      <a class="nav-item nav-link social-icon" href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fab fa-linkedin-in fa-lg"></i>
+      </a>
+      {% endif %}
+
+      {% if site.author.medium %}
+      <a class="nav-item nav-link social-icon" href="https://medium.com/@{{ site.author.medium }}" target="_blank" title="Medium" rel="noopener noreferrer">
+        <i class="fab fa-medium fa-lg"></i>
+      </a>
+      {% endif %}
+
+      {% if site.author.itch-io %}
+      <a class="nav-item nav-link social-icon" href="https://{{ site.author.itch-io }}.itch.io/" target="_blank" title="Itch.io" rel="noopener noreferrer">
+        <i class="fab fa-itch-io fa-lg"></i>
+      </a>
+      {% endif %}
+
+      <!-- Regular navigation pages - Now properly sorted by weight -->
+      {%- assign weighted_pages = site.pages | where_exp: "item", "item.weight" | sort: "weight" -%}
+      {%- for node in weighted_pages -%}
+        {%- if node.title -%}
+          {%- unless site.nav_exclude contains node.url -%}
+            <a class="nav-item nav-link {% if page.url == node.url %}active{% endif %}" href="{{ node.url | relative_url }}">{{ node.title }}</a>
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      <!-- Theme toggler -->
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+
+<style>
+/* Hover effects for social icons */
+.social-icon {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon .fa-github:hover {
+  color: #333333;
+}
+
+.social-icon .fa-linkedin-in:hover {
+  color: #0077b5;
+}
+
+.social-icon .fa-medium:hover {
+  color: #00ab6c;
+}
+
+.social-icon .fa-itch-io:hover {
+  color: #fc636b;
+}
+
+/* Ensure icons are properly sized on mobile */
+@media (max-width: 991px) {
+  .social-icon {
+    padding: 0.5rem 0.75rem;
+  }
+}
+</style>

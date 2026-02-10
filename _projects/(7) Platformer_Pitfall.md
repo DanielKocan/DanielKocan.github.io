@@ -2,7 +2,7 @@
 name: Pitfall 2D - Platformer Game (C++ from Scratch)
 tools: [C++, 2D, JSON]
 image: /assets/projects/PlatformerPitfall/main.gif
-order: 0
+order: 7
 description: This project was a personal deep dive into building a 2D platformer game entirely from scratch in C++ - no game engine, no shortcuts, just raw code and systems I designed and implemented myself.
 ---
 

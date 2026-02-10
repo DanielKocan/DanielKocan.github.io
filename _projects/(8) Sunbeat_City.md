@@ -2,7 +2,7 @@
 name: Sunbeat City
 tools: [Unreal Enigne, Team Project, C++, AI, SCRUM]
 image: /assets/projects/SunbeatCity/ICOn.png
-weight: 5
+order: 8
 description: First-person parkour game in a solarpunk theme! I created the AI and was responsible for optimization in UE5.
 ---
 
