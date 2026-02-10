@@ -3,7 +3,7 @@ name: Wasteland Walkers
 tools: [Unreal Enigne, Team Project, C++, SCRUM]
 image: /assets/projects/WastelandWalkers/main.gif
 description: I collaborated with a team of designers, programmers and visual artists to develop an Unreal Engine Co-Op game over 8 weeks.
-order: 10
+order: 3
 ---
 
 # Wasteland Walkers (Unreal Engine Team Project, 8 Weeks)

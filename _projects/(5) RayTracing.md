@@ -3,7 +3,7 @@ name: Voxel Raytracing + Pinball Game
 tools: [C++, Graphics, Raytracing]
 image: /assets/projects/Raytracing/main.gif
 description: In this challenging graphics project, I developed a voxel-based raytracing in C++ and turned it into Pinball game!
-order: 5
+order: 6
 ---
 
 # Voxel Raytracing Engine + Pinball Game  
