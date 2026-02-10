@@ -13,9 +13,168 @@
       <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}</p>
       <p id="{{ project_id }}-tools" class="card-text">
         {%- for tool in project_tools -%}
-        <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
+          {%- assign tool_lower = tool | downcase -%}
+          
+          {%- if tool_lower contains "team" -%}
+            {%- assign badge_color = "badge-team" -%}
+          {%- elsif tool_lower contains "c++" -%}
+            {%- assign badge_color = "badge-cpp" -%}
+          {%- elsif tool_lower contains "unreal" -%}
+            {%- assign badge_color = "badge-unreal" -%}
+          {%- elsif tool_lower contains "unity" -%}
+            {%- assign badge_color = "badge-unity" -%}
+          {%- elsif tool_lower contains "llm" -%}
+            {%- assign badge_color = "badge-llm" -%}
+          {%- elsif tool_lower contains "ai" -%}
+            {%- assign badge_color = "badge-ai" -%}
+          {%- elsif tool_lower contains "network" -%}
+            {%- assign badge_color = "badge-network" -%}
+          {%- elsif tool_lower contains "raspberry" -%}
+            {%- assign badge_color = "badge-raspberry" -%}
+          {%- elsif tool_lower contains "json" -%}
+            {%- assign badge_color = "badge-json" -%}
+          {%- elsif tool_lower contains "pc" or tool_lower contains "ps5" or tool_lower contains "cross-platform" -%}
+            {%- assign badge_color = "badge-platform" -%}
+          {%- elsif tool_lower contains "physics" or tool_lower contains "jolt" or tool_lower contains "bullet" -%}
+            {%- assign badge_color = "badge-physics" -%}
+          {%- elsif tool_lower contains "graphics" or tool_lower contains "raytracing" -%}
+            {%- assign badge_color = "badge-graphics" -%}
+          {%- elsif tool_lower contains "opengl" -%}
+            {%- assign badge_color = "badge-opengl" -%}
+          {%- elsif tool_lower contains "ecs" -%}
+            {%- assign badge_color = "badge-ecs" -%}
+          {%- elsif tool_lower contains "plugin" -%}
+            {%- assign badge_color = "badge-plugin" -%}
+          {%- elsif tool_lower contains "scrum" or tool_lower contains "agile" -%}
+            {%- assign badge_color = "badge-scrum" -%}
+          {%- elsif tool_lower contains "2d" -%}
+            {%- assign badge_color = "badge-2d" -%}
+          {%- elsif tool_lower contains "3d" -%}
+            {%- assign badge_color = "badge-3d" -%}
+          {%- else -%}
+            {%- assign badge_color = "badge-default" -%}
+          {%- endif -%}
+          
+          <span class="badge badge-pill {{ badge_color }} ml-1">{{ tool }}</span>
         {%- endfor -%}
       </p>
     </div>
   </a>
 </div>
+
+<style>
+/* Color-coded badges for different tool types - ALL WITH BLACK BORDERS */
+.badge-team {
+  background-color: #7c3aed !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-cpp {
+  background-color: #00599c !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-unreal {
+  background-color: #0e1128 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-unity {
+  background-color: #222222 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-llm {
+  background-color: #16a34a !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-ai {
+  background-color: #10b981 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-network {
+  background-color: #3b82f6 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-raspberry {
+  background-color: #c51a4a !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-json {
+  background-color: #facc15 !important;
+  color: #1a1a1a !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-platform {
+  background-color: #64748b !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-physics {
+  background-color: #dc2626 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-graphics {
+  background-color: #ea580c !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-opengl {
+  background-color: #b45309 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-ecs {
+  background-color: #a855f7 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-plugin {
+  background-color: #ec4899 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-scrum {
+  background-color: #06b6d4 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-2d {
+  background-color: #14b8a6 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-3d {
+  background-color: #0891b2 !important;
+  color: white !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+.badge-default {
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  border: 2px solid #1a1a1a !important;
+}
+</style>

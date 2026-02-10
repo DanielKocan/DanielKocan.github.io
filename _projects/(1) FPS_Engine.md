@@ -1,6 +1,6 @@
 ---
 name: FPS Engine
-tools: [Team Project, C++, Cross-platform (PC/PS5), Jolt, ECS]
+tools: [C++, Team Project, Cross-platform (PC/PS5), Jolt, ECS]
 image: /assets/projects/FPSEngine/Main.gif
 description: In this project, my team and I built a first-person shooter (FPS) engine using the Entity-Component-System (ECS) architecture in C++.
 order: 1
