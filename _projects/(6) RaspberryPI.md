@@ -2,7 +2,7 @@
 name: Raspberry Pi 3D Runner
 tools: [C++, 3D, OpenGL, RaspberryPI]
 image: /assets/projects/RaspberryPI3DPitfall/main.gif
-description: I developed a 3D runner game on Raspberry Pi using C++, OpenGL for rendering and Bullet Physics.
+description: I developed a 3D runner game on Raspberry Pi using C++, OpenGL for rendering and Bullet library for physics logic.
 order: 10
 ---
 

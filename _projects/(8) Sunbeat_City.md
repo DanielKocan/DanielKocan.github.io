@@ -3,7 +3,7 @@ name: Sunbeat City
 tools: [Unreal Engine, Team Project, C++, AI, SCRUM]
 image: /assets/projects/SunbeatCity/SunbeatCityGif.gif
 order: 2
-description: First-person parkour game in a solarpunk theme! I created the AI and was responsible for optimization in UE5.
+description: First-person parkour game with a solarpunk theme. I made the crowd AI and was responsible for performance optimization in UE5.
 ---
 
 # Sunbeat City (Unreal Engine, Team Project, 6 Weeks)
