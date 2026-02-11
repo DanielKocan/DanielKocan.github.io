@@ -2,7 +2,7 @@
 name: Dedicated Server Plugin Unreal Engine
 tools: [Unreal Enigne, C++, Plugin, Network]
 image: /assets/projects/DedicatedServerPluginUE/Icon.png
-order: 9
+order: 5
 description: Easy-to-use multiplayer networking plugin for UE5.6 built on Epic Online Services. Handles lobbies, sessions, and dedicated servers with full Blueprint support!
 ---
 

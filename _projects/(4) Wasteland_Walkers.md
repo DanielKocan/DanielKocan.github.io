@@ -13,7 +13,7 @@ For this project, I collaborated with a multidisciplinary team of designers and 
 {% include elements/video.html id="GzBfxlUhx4Q" %}
 ### [LINK TO WASTELAND WALKERS](https://buas.itch.io/team-mace)
 
-# ✨ My Key Contributions
+# My Key Contributions
 ### Gameplay Programming
 
 Worked extensively in Blueprints and C++ to implement key gameplay features:
@@ -34,6 +34,8 @@ Worked extensively in Blueprints and C++ to implement key gameplay features:
 * Adjusted my work dynamically based on team feedback and shifting design priorities.
 * Documented progress and shared updates to keep the team aligned.
 
+![preview](../assets/projects/WastelandWalkers/Picture2.jpg)
+
 ### Dynamic Difficulty Adjustment (DDA) System
 
 * Researched DDA methods as part of my personal development goal.
@@ -41,11 +43,11 @@ Worked extensively in Blueprints and C++ to implement key gameplay features:
 
 ### Why This Was Challenging?
 
-⏳ Tight Team Deadlines - With only 8 weeks and a multi-role team, clear communication and fast iteration were essential. I had to stay adaptable and proactive, prioritizing tasks that unblocked others and contributed to the core game experience.
+**Tight Team Deadlines** - With only 8 weeks and a multi-role team, clear communication and fast iteration were essential. I had to stay adaptable and proactive, prioritizing tasks that unblocked others and contributed to the core game experience.
 
-🛠 Balancing Blueprint and C++ - Knowing when to use Blueprints for speed and flexibility vs. C++ for power and efficiency was key. I improved my hybrid development skills significantly.
+**Balancing Blueprint and C++** - Knowing when to use Blueprints for speed and flexibility vs. C++ for power and efficiency was key. I improved my hybrid development skills significantly.
 
-🎯 Making Systems Designer-Friendly - My DDA tool wasn’t just functional - it was built to be usable by designers without needing code changes, which required thoughtful UI and clear integration.
+**Making Systems Designer-Friendly** - My DDA tool wasn’t just functional - it was built to be usable by designers without needing code changes, which required thoughtful UI and clear integration.
 
 ### What I Learned?
 

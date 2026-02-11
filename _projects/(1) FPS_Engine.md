@@ -10,28 +10,34 @@ order: 1
 
 #### In this project, my team and I built a first-person shooter (FPS) engine using the Entity-Component-System (ECS) architecture in C++. Here's what I worked on:
 
-🔫 Gun System   
+**Gun System**  
 I designed and built a customizable gun system - this means game designers can add or tweak guns without needing to touch the code! It's flexible and easy to use for non-programmers.
 
-<video width="640" height="360" controls muted>
+<video width="854" height="480" controls muted>
   <source src="../assets/projects/FPSEngine/newSettingsForGuns.mp4" type="video/mp4">
 </video>
 
-💥 Jolt Physics Integration    
+**Jolt Physics Integration**  
 I integrated Jolt Physics into the engine, adding custom collision handling and fixing tricky physics issues. This made sure things like bullets, characters, and environments interacted smoothly and realistically.
 
 ![preview](../assets/projects/FPSEngine/CustomCollisionAndAimSpheres.gif)
 
-🏃 Character Movement    
+**Character Movement**    
 I implemented the player character’s movement system: walking, running, jumping - making sure it feels smooth and responsive.
 
 ![preview](../assets/projects/FPSEngine/Walking.gif)
 
-🐛 Bug Fixing & Checking    
+**Bug Fixing & Checking**    
 I spent time hunting down bugs, testing the features we built and making sure everything worked as expected.
 
-🔍 Pull Request Reviews    
+**Pull Request Reviews**    
 On GitHub, I regularly reviewed my teammates' pull requests (PRs), checking the code for quality, suggesting improvements, and making sure the project stayed on track.
+
+### Final Showcase: 
+
+<video width="854" height="480" controls muted>
+  <source src="../assets/projects/FPSEngine/CustomEngine.mp4" type="video/mp4">
+</video>
 
 ## What I Learned
 

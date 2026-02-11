@@ -40,30 +40,36 @@ I also wrote custom decorators and tasks to expand Unreal’s behavior tree syst
 
 ![preview](../assets/projects/SunbeatCity/CrowdMakingGroups.gif)
 
-In sprint three, I expanded on these systems and made them more robust. I introduced the AI Detour Crowd Controller, which improved collision avoidance and gave NPC movement a more natural feel. NPCs were now able to react to the player, smoothly turning to face them instead of snapping, and even showing mood changes when bumped into. I also implemented points of interest and created Blueprint tools that allowed designers to set up NPC behaviors without digging into code. Working closely with other strike teams, I integrated NPC reactions into the Music-to-Movement system so that characters could dance or jump around when the player generated high amounts of music. To add more personality, I included random facial expressions and small details that made the NPCs feel more alive and reactive to the world around them.
+
+In sprint three, I expanded on these systems and made them more robust. I introduced the AI Detour Crowd Controller, which improved collision avoidance and gave NPC movement a more natural feel.  
+
+NPCs were now able to react to the player, smoothly turning to face them instead of snapping, and even showing mood changes when bumped into. I also implemented points of interest and created Blueprint tools that allowed designers to set up NPC behaviors without digging into code.  
+
+Working closely with other strike teams, I integrated NPC reactions into the Music-to-Movement system so that characters could dance or jump around when the player generated high amounts of music. To add more personality, I included random facial expressions and small details that made the NPCs feel more alive and reactive to the world around them. 
 
 ![preview](../assets/projects/SunbeatCity/IdleAndBumpAnimation-ezgif.com-video-to-gif-converter.gif)
 
 The final sprint was focused on polishing features and optimizing performance. I worked with designers to implement a push box mechanic and collaborated with visual artists to add color-based material changes, making NPCs show emotions like anger when bumped into. I also refined the animation system so NPCs could seamlessly transition between idle, talking, and reaction states. 
 
-<video width="640" height="360" controls muted>
+<video width="854" height="480" controls muted>
   <source src="../assets/projects/SunbeatCity/FinalLook.mp4" type="video/mp4">
 </video>
 
-On the technical side, I spent a lot of time profiling and fixing performance issues. Using GPU tracing and NVIDIA Nsight, I tracked down major bottlenecks related to ray tracing, skylight settings, and HZBO configuration. After applying fixes, the game achieved much better framerates and became more stable. I also resolved build failures caused by scalability settings and ensured all improvements were properly committed through Perforce.
+On the technical side, I spent a lot of time profiling and fixing performance issues. Using GPU tracing and NVIDIA Nsight, I tracked down major bottlenecks related to ray tracing, skylight settings, and HZBO configuration. 
 
-Before:
+After applying fixes, the game achieved much better framerates and became more stable. I also resolved build failures caused by scalability settings and ensured all improvements were properly committed through Perforce.
+
+**Before:**
 
 ![preview](../assets/projects/SunbeatCity/ViewvisibilityperformanceHit.png)
 
-After:
+**After:**
 
 ![preview](../assets/projects/SunbeatCity/NomoreIsue.png)
 
 ### Sumarize
 
-Overall, my contributions centered on creating a playable, dynamic, and optimized NPC system. From initial research to advanced AI behavior, emotional interactions, and final performance improvements, my work helped for my team to chreate the festival world and feel vibrant & interactive while supporting the needs of other disciplines. This experience allowed me to develop both my technical problem-solving skills and my ability to collaborate effectively across different roles in a game development team.
-
+Overall, my contributions centered on creating a playable, dynamic, and optimized NPC system. From initial research to advanced AI behavior, emotional interactions, and final performance improvements, my work hopefully helped for my team to create the festival world and feel vibrant & interactive while supporting the needs of other disciplines. This experience allowed me to develop both my technical problem-solving skills and my ability to collaborate effectively across different roles in a game development team.
 
 <p class="text-center">
 {% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}

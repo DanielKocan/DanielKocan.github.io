@@ -11,17 +11,17 @@ order: 6
 
 ![preview](../assets/projects/Raytracing/beggining.gif)
 
-✨ Key Features I Built   
+# Key Features I Built:  
 **Advanced Lighting & Shadows**
 
-* Added point lights, spotlights, and directional lights, all casting realistic shadows using shadow rays.
-* Implemented efficient light visibility testing to enhance scene realism.
+* Added point lights, spotlights, and directional lights, all casting shadows using shadow rays.
+* Implemented picture spotlight.
 
 ![preview](../assets/projects/Raytracing/pointLightBuasLogo.gif)
 
 **Material System**
 
-* Developed a robust material framework: reflective surfaces, recursive reflections (with recursion caps), and physically accurate dielectric (glass-like) materials.
+* Developed a material framework: reflective surfaces, recursive reflections (with recursion caps), and physically accurate dielectric (glass-like) materials.
 
 ![preview](../assets/projects/Raytracing/breaks.png)
 ![preview](../assets/projects/Raytracing/image168.png)
@@ -49,7 +49,8 @@ order: 6
 
 * Profiled the raytracer to identify bottlenecks and applied targeted optimizations for faster rendering.
 
-More pictures:   
+**More pictures:**   
+
 ![preview](../assets/projects/Raytracing/image154.gif)
 ![preview](../assets/projects/Raytracing/image14.png)
 ![preview](../assets/projects/Raytracing/image50.png)
