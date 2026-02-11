@@ -8,7 +8,7 @@ order: 4
 
 For this project, I built key components of a 2D game engine focused on pathfinding, collision detection, and physics. Even though it was 2D, this work gave me deep insights into the systems behind major engines like Unreal and Unity - showing how much complexity is hidden behind the scenes, even in “simple” games.
 
-### What I Built?
+### What I Built
 
 **Graph-Based Pathfinding (Week 1)**
 * Implemented A* search algorithm on graph data.
@@ -38,7 +38,7 @@ For this project, I built key components of a 2D game engine focused on pathfind
 * Built a demo where multiple agents chase a player-controlled character and recompute paths dynamically.
 
 **Physics Engine Foundations (Week 4)**
-* Added physics system for 2D circle and polygons.
+* Added physics system for 2D circles and polygons.
 * Implemented static, dynamic, and kinematic body types.
 * Set up a fixed-framerate physics loop to ensure consistent simulation.
 

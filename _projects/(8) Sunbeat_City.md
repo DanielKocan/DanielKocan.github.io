@@ -1,6 +1,6 @@
 ---
 name: Sunbeat City
-tools: [Unreal Enigne, Team Project, C++, AI, SCRUM]
+tools: [Unreal Engine, Team Project, C++, AI, SCRUM]
 image: /assets/projects/SunbeatCity/SunbeatCityGif.gif
 order: 2
 description: First-person parkour game in a solarpunk theme! I created the AI and was responsible for optimization in UE5.
@@ -67,7 +67,7 @@ After applying fixes, the game achieved much better framerates and became more s
 
 ![preview](../assets/projects/SunbeatCity/NomoreIsue.png)
 
-### Sumarize
+### Summary
 
 Overall, my contributions centered on creating a playable, dynamic, and optimized NPC system. From initial research to advanced AI behavior, emotional interactions, and final performance improvements, my work hopefully helped for my team to create the festival world and feel vibrant & interactive while supporting the needs of other disciplines. This experience allowed me to develop both my technical problem-solving skills and my ability to collaborate effectively across different roles in a game development team.
 

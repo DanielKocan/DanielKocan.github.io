@@ -1,6 +1,6 @@
 ---
 name: Dedicated Server Plugin Unreal Engine
-tools: [Unreal Enigne, C++, Plugin, Network]
+tools: [Unreal Engine, C++, Plugin, Network]
 image: /assets/projects/DedicatedServerPluginUE/Icon.png
 order: 5
 description: Easy-to-use multiplayer networking plugin for UE5.6 built on Epic Online Services. Handles lobbies, sessions, and dedicated servers with full Blueprint support!
@@ -91,7 +91,7 @@ Throughout development, several aspects of the original plan shifted based on pr
 
 This iterative process taught me that initial planning is crucial, but flexibility and responding to real-world constraints is equally important. The final product is stronger for these adjustments.
 
-## Sumarize
+## Summary
 
 Overall, this project allowed me to deep-dive into networking architecture, understand EOS at a fundamental level, and create a tool that other developers can actually use and learn from. The plugin is designed to be hackable - developers can read the C++ code, understand how it works, and modify it for their specific needs. This transparency was a key goal, as I believe the best way to learn is by reading and experimenting with clear, well-structured code.
 
