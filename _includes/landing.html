@@ -1,6 +1,9 @@
 <!-- 3D FPS Background Canvas -->
 <canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;cursor:none;"></canvas>
 
+<!-- Dark overlay so white/grey text stays readable over the sky -->
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:rgba(0,0,0,0.5);pointer-events:none;"></div>
+
 <!-- ═══════════════════════════════════════════════════════════════
      YOUR ORIGINAL LANDING PAGE CONTENT — unchanged
 ════════════════════════════════════════════════════════════════ -->
@@ -85,11 +88,11 @@
 <script>
 // ─── Scene ─────────────────────────────────────────────────────────────────
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
-scene.fog = new THREE.FogExp2(0x000000, 0.008);
+// UE5 dusk atmosphere fog — darker, moodier
+scene.fog = new THREE.FogExp2(0x1a2a3a, 0.005);
 
-const camera = new THREE.PerspectiveCamera(65, innerWidth / innerHeight, 0.1, 500);
-camera.position.set(0, 0, 38);
+const camera = new THREE.PerspectiveCamera(65, innerWidth / innerHeight, 0.1, 1000);
+camera.position.set(0, 2, 38);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg-canvas'),
@@ -97,18 +100,189 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = false;
 
-// ─── Lighting ──────────────────────────────────────────────────────────────
-scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+// ─── SKY DOME ──────────────────────────────────────────────────────────────
+// Large sphere enclosing the scene, painted with a UE5 dusk gradient shader
+const skyGeo = new THREE.SphereGeometry(500, 32, 16);
+// Flip normals inward
+skyGeo.scale(-1, 1, 1);
+
+const skyMat = new THREE.ShaderMaterial({
+  uniforms: {
+    uTime:    { value: 0.0 },
+    // Sky gradient stops (bottom → top), matching the reference screenshot
+    uHorizon: { value: new THREE.Color(0x2a3d52) },  // pale icy horizon
+    uMid:     { value: new THREE.Color(0x152535) },  // mid blue
+    uZenith:  { value: new THREE.Color(0x080e18) },  // deep dusk blue
+    uGlow:    { value: new THREE.Color(0x3a2818) },  // warm glow near horizon
+  },
+  vertexShader: `
+    varying vec3 vWorldPos;
+    void main() {
+      vWorldPos = position;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform float uTime;
+    uniform vec3 uHorizon;
+    uniform vec3 uMid;
+    uniform vec3 uZenith;
+    uniform vec3 uGlow;
+
+    varying vec3 vWorldPos;
+
+    // Simple hash noise for cloud-like texture
+    float hash(vec2 p) {
+      return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+    }
+    float noise(vec2 p) {
+      vec2 i = floor(p);
+      vec2 f = fract(p);
+      f = f*f*(3.0-2.0*f);
+      return mix(
+        mix(hash(i), hash(i+vec2(1,0)), f.x),
+        mix(hash(i+vec2(0,1)), hash(i+vec2(1,1)), f.x),
+        f.y
+      );
+    }
+    float fbm(vec2 p) {
+      float v = 0.0, a = 0.5;
+      for(int i=0;i<5;i++){ v += a*noise(p); p*=2.1; a*=0.5; }
+      return v;
+    }
+
+    void main() {
+      // Normalise height: -1 (below horizon) → +1 (zenith)
+      float h = normalize(vWorldPos).y;
+
+      // Sky gradient
+      vec3 sky = mix(uHorizon, uMid,   smoothstep(-0.05, 0.35, h));
+              sky = mix(sky,    uZenith, smoothstep(0.35,  0.85, h));
+
+      // Warm glow band just above horizon (sun hidden below, dusk feel)
+      float glow = exp(-abs(h - 0.04) * 14.0) * 0.55;
+      sky = mix(sky, uGlow, glow);
+
+      // ── Clouds ──────────────────────────────────────────────────────────
+      // Only draw clouds in a band near the horizon (h 0.0 → 0.45)
+      float cloudMask = smoothstep(0.0, 0.08, h) * smoothstep(0.45, 0.18, h);
+
+      // Spherical UV for cloud noise
+      vec3 n = normalize(vWorldPos);
+      vec2 cloudUV = vec2(atan(n.z, n.x) / 6.2832, n.y) * vec2(3.0, 6.0);
+      cloudUV.x += uTime * 0.018; // slow drift
+
+      float c = fbm(cloudUV * 1.8);
+      c = smoothstep(0.48, 0.72, c); // threshold — only dense parts
+
+      // Cloud colour: dark blue-grey undersides like the screenshot
+      vec3 cloudDark  = vec3(0.30, 0.38, 0.50);
+      vec3 cloudLight = vec3(0.72, 0.80, 0.90);
+      float cloudLit = smoothstep(0.5, 0.9, c);
+      vec3 cloudColor = mix(cloudDark, cloudLight, cloudLit);
+
+      sky = mix(sky, cloudColor, c * cloudMask * 0.88);
+
+      // Subtle lower-haze softening
+      float haze = smoothstep(0.0, -0.12, h) * 0.4;
+      sky = mix(sky, uHorizon, haze);
+
+      gl_FragColor = vec4(sky, 1.0);
+    }
+  `,
+  side: THREE.FrontSide,
+  depthWrite: false,
+});
+
+const skyMesh = new THREE.Mesh(skyGeo, skyMat);
+scene.add(skyMesh);
+
+// ─── GROUND PLANE (checkerboard like the screenshot) ──────────────────────
+const groundGeo = new THREE.PlaneGeometry(600, 600, 80, 80);
+const groundMat = new THREE.ShaderMaterial({
+  uniforms: {
+    uFogColor: { value: new THREE.Color(0x1a2a3a) },
+    uColor1:   { value: new THREE.Color(0x252f38) }, // dark checker
+    uColor2:   { value: new THREE.Color(0x2e3a44) }, // light checker
+  },
+  vertexShader: `
+    varying vec2 vUV;
+    varying float vDist;
+    void main() {
+      vUV = uv;
+      vec4 worldPos = modelMatrix * vec4(position, 1.0);
+      vDist = length(worldPos.xz);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    uniform vec3 uFogColor;
+    uniform vec3 uColor1;
+    uniform vec3 uColor2;
+    varying vec2 vUV;
+    varying float vDist;
+    void main() {
+      // Checkerboard — large tiles like the UE5 default ground
+      float tileSize = 0.05;
+      vec2 tile = floor(vUV / tileSize);
+      float checker = mod(tile.x + tile.y, 2.0);
+      vec3 col = mix(uColor1, uColor2, checker);
+      // Fog fade to horizon
+      float fog = clamp(vDist / 280.0, 0.0, 1.0);
+      fog = fog * fog;
+      col = mix(col, uFogColor, fog);
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `,
+});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -14;
+scene.add(ground);
+
+// ─── Distant hills silhouette (misty, like screenshot left side) ──────────
+(function() {
+  const hillShape = new THREE.Shape();
+  hillShape.moveTo(-200, 0);
+  hillShape.bezierCurveTo(-160, 0, -140, 12, -100, 10);
+  hillShape.bezierCurveTo(-80, 9, -60, 4,  -40, 6);
+  hillShape.bezierCurveTo(-20, 8,   0, 2,   40, 0);
+  hillShape.lineTo(200, 0); hillShape.lineTo(200, -5); hillShape.lineTo(-200, -5);
+  hillShape.closePath();
+
+  const extrudeSettings = { depth: 1, bevelEnabled: false };
+  const hillGeo = new THREE.ExtrudeGeometry(hillShape, extrudeSettings);
+  const hillMat = new THREE.MeshBasicMaterial({ color: 0x1e2d3a, transparent: true, opacity: 0.35 });
+  const hillMesh = new THREE.Mesh(hillGeo, hillMat);
+  hillMesh.position.set(-30, -6, -120);
+  scene.add(hillMesh);
+})();
+
+// ─── Lighting — soft dusk atmosphere ──────────────────────────────────────
+const ambientLight = new THREE.AmbientLight(0xb0c8e0, 0.7);
+scene.add(ambientLight);
+
+// Key light: low sun angle, warm
+const sunLight = new THREE.DirectionalLight(0xfce8c8, 0.6);
+sunLight.position.set(60, 8, -80);
+scene.add(sunLight);
+
+// Fill: cool blue from sky
+const fillLight = new THREE.HemisphereLight(0x152535, 0x1e2d3a, 0.5);
+scene.add(fillLight);
+
+// Original game point lights — kept exactly as before
 const pL1 = new THREE.PointLight(0x00ff88, 2.0, 120); pL1.position.set(15, 15, 20);  scene.add(pL1);
 const pL2 = new THREE.PointLight(0xff6b35, 1.2, 120); pL2.position.set(-15,-15, 15); scene.add(pL2);
 const pL3 = new THREE.PointLight(0x0055ff, 0.8, 80);  pL3.position.set(0, 25,-10);   scene.add(pL3);
 
-// ─── Grid floor ────────────────────────────────────────────────────────────
+// ─── Grid floor (original, kept) ──────────────────────────────────────────
 const grid = new THREE.GridHelper(200, 40, 0x00ff88, 0x001a0d);
 grid.position.y = -16;
 grid.material.transparent = true;
-grid.material.opacity = 0.12;
+grid.material.opacity = 0.08;
 scene.add(grid);
 
 // ─── Raycaster ─────────────────────────────────────────────────────────────
@@ -128,7 +302,7 @@ const GEOS = [
 const targets   = [];
 const particles = [];
 const tracers   = [];
-let   objCounter = 0; // global index so IDs are unique and never reused
+let   objCounter = 0;
 
 // ─── Spawn target ──────────────────────────────────────────────────────────
 function spawnTarget(fromEdge) {
@@ -298,6 +472,12 @@ function animate() {
 
   pL1.intensity = 1.8 + Math.sin(t * 1.1) * 0.4;
   pL2.intensity = 1.0 + Math.cos(t * 0.8) * 0.3;
+
+  // Advance sky shader time (slow cloud drift)
+  skyMat.uniforms.uTime.value = t;
+
+  // Rotate sky dome very slowly for cloud drift
+  skyMesh.rotation.y = t * 0.004;
 
   for (const tgt of targets) {
     if (!tgt.alive) continue;
