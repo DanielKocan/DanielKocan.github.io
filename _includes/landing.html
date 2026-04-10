@@ -189,10 +189,17 @@
 <script>
 // Auto scroll down after a delay
 setTimeout(() => {
+  let userScrolled = false;
+
+  const cancelScroll = () => { userScrolled = true; };
+  window.addEventListener('wheel', cancelScroll, { once: true });
+  window.addEventListener('touchstart', cancelScroll, { once: true });
+  window.addEventListener('keydown', cancelScroll, { once: true });
+
   const target = window.innerHeight * 0.85;
   const start = window.scrollY;
   const distance = target - start;
-  const duration = 2500; // ms, higher = slower
+  const duration = 2500;
   let startTime = null;
 
   function easeInOutCubic(t) {
@@ -200,6 +207,7 @@ setTimeout(() => {
   }
 
   function step(timestamp) {
+    if (userScrolled) return; // stop if user touched scroll
     if (!startTime) startTime = timestamp;
     const elapsed = timestamp - startTime;
     const progress = Math.min(elapsed / duration, 1);
@@ -208,7 +216,7 @@ setTimeout(() => {
   }
 
   requestAnimationFrame(step);
-}, 2000);
+}, 3000);
 
 // Make WOW animations trigger immediately for featured projects
 document.addEventListener('DOMContentLoaded', () => {
