@@ -20,7 +20,25 @@
 </div>
 
 <!-- ═══════════════════════════════ FEATURED PROJECTS ══════════════════════════════ -->
-<div class="container-fluid" style="position:relative;z-index:10;padding: 4rem 2rem 3rem;">
+<div class="container-fluid" style="position:relative;z-index:10;padding: 1rem 2rem 3rem;">
+
+  <!-- Internship banner -->
+  <div class="text-center wow animated fadeIn" data-wow-delay=".2s"
+      style="position:relative;z-index:10;margin-bottom:1rem;">
+    <span style="
+      display:inline-block;
+      background:rgba(74,158,255,0.6);
+      border:1px solid rgba(74,158,255,0.4);
+      border-radius:999px;
+      padding:0.5rem 1.5rem;
+      font-size:1rem;
+      font-weight:600;
+      color:#fff;
+      backdrop-filter:blur(6px);
+    ">
+      Looking for an internship starting September 2026: Unreal Engine or C++ game programming - but open to anything! 😁
+    </span>
+  </div>
 
   <h3 class="text-center mb-4 wow animated fadeIn" data-wow-delay=".1s"
       style="color:#4a9eff;font-family:'Share Tech Mono',monospace;letter-spacing:0.2em;">
@@ -97,7 +115,7 @@
 
   <div class="text-center mt-2 wow animated fadeIn" data-wow-delay=".5s">
     <a href="/projects/" style="color:#4a9eff;font-family:'Share Tech Mono',monospace;font-size:16px;font-weight:600;letter-spacing:0.15em;opacity:0.9;">
-      [ VIEW_ALL_PROJECTS → ]
+      [ VIEW_ALL_PROJECTS ]
     </a>
   </div>
 
@@ -169,6 +187,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
 <script>
+// Auto scroll down after a delay
+setTimeout(() => {
+  const target = window.innerHeight * 0.85;
+  const start = window.scrollY;
+  const distance = target - start;
+  const duration = 2500; // ms, higher = slower
+  let startTime = null;
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+  }
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + distance * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}, 2000);
+
+// Make WOW animations trigger immediately for featured projects
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof WOW !== 'undefined') {
+    new WOW({ offset: 0 }).init();
+  }
+});
+
 // ─── Scene ─────────────────────────────────────────────────────────────────
 const scene = new THREE.Scene();
 scene.fog = new THREE.FogExp2(0x1a2a3a, 0.005);
