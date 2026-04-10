@@ -2,10 +2,10 @@
 <canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;cursor:none;"></canvas>
 
 <!-- Dark overlay so white/grey text stays readable over the sky -->
-<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:rgba(0,0,0,0.5);pointer-events:none;"></div>
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:rgba(0,0,0,0.6);pointer-events:none;"></div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     YOUR ORIGINAL LANDING PAGE CONTENT — unchanged
+     HERO SECTION
 ════════════════════════════════════════════════════════════════ -->
 <div class="row justify-content-center align-items-center p-4" style="position:relative;z-index:10;">
   <div class="col-lg-4 col-md-6 text-center mt-4">
@@ -18,10 +18,93 @@
     <p class="text-muted wow animated slideInUp" data-wow-delay=".15s">{{ site.description }}</p>
   </div>
 </div>
-<!-- ═══════════════════════════════════════════════════════════════ -->
 
-<!-- FPS HUD Overlay -->
-<div id="fps-hud" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;font-family:'Share Tech Mono',monospace;">
+<!-- ═══════════════════════════════ FEATURED PROJECTS ══════════════════════════════ -->
+<div class="container-fluid" style="position:relative;z-index:10;padding: 4rem 2rem 3rem;">
+
+  <h3 class="text-center mb-4 wow animated fadeIn" data-wow-delay=".1s"
+      style="color:#00ff88;font-family:'Share Tech Mono',monospace;letter-spacing:0.2em;">
+    // FEATURED_PROJECTS
+  </h3>
+
+  <div class="row justify-content-center">
+
+    {% assign sorted = site.projects | sort: "order" %}
+    {% assign featured = sorted | slice: 0, 3 %}
+    {% for project in featured %}
+
+    <div class="col-lg-4 col-md-6 mb-4 wow animated fadeInUp" data-wow-delay="{{ forloop.index | times: 0.1 | plus: 0.1 }}s">
+      <a href="{{ project.url | relative_url }}" class="featured-card card text-themed h-100">
+        {% if project.image %}
+        <img src="{{ project.image }}" class="card-img-top" alt="{{ project.name }}" style="object-fit:cover;height:180px;">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title featured-card-title">{{ project.name }}</h5>
+          <p class="card-text text-muted">{{ project.description }}</p>
+          <p class="mt-2">
+            {% for tool in project.tools %}
+              {%- assign tool_lower = tool | downcase -%}
+              {%- if tool_lower contains "team" -%}
+                {%- assign badge_color = "badge-team" -%}
+              {%- elsif tool_lower contains "c++" -%}
+                {%- assign badge_color = "badge-cpp" -%}
+              {%- elsif tool_lower contains "unreal" -%}
+                {%- assign badge_color = "badge-unreal" -%}
+              {%- elsif tool_lower contains "unity" -%}
+                {%- assign badge_color = "badge-unity" -%}
+              {%- elsif tool_lower contains "llm" -%}
+                {%- assign badge_color = "badge-llm" -%}
+              {%- elsif tool_lower contains "ai" -%}
+                {%- assign badge_color = "badge-ai" -%}
+              {%- elsif tool_lower contains "network" -%}
+                {%- assign badge_color = "badge-network" -%}
+              {%- elsif tool_lower contains "raspberry" -%}
+                {%- assign badge_color = "badge-raspberry" -%}
+              {%- elsif tool_lower contains "json" -%}
+                {%- assign badge_color = "badge-json" -%}
+              {%- elsif tool_lower contains "pc" or tool_lower contains "ps5" or tool_lower contains "cross-platform" -%}
+                {%- assign badge_color = "badge-platform" -%}
+              {%- elsif tool_lower contains "physics" or tool_lower contains "jolt" or tool_lower contains "bullet" -%}
+                {%- assign badge_color = "badge-physics" -%}
+              {%- elsif tool_lower contains "graphics" or tool_lower contains "raytracing" -%}
+                {%- assign badge_color = "badge-graphics" -%}
+              {%- elsif tool_lower contains "opengl" -%}
+                {%- assign badge_color = "badge-opengl" -%}
+              {%- elsif tool_lower contains "ecs" -%}
+                {%- assign badge_color = "badge-ecs" -%}
+              {%- elsif tool_lower contains "plugin" -%}
+                {%- assign badge_color = "badge-plugin" -%}
+              {%- elsif tool_lower contains "scrum" or tool_lower contains "agile" -%}
+                {%- assign badge_color = "badge-scrum" -%}
+              {%- elsif tool_lower contains "2d" -%}
+                {%- assign badge_color = "badge-2d" -%}
+              {%- elsif tool_lower contains "3d" -%}
+                {%- assign badge_color = "badge-3d" -%}
+              {%- else -%}
+                {%- assign badge_color = "badge-default" -%}
+              {%- endif -%}
+              <span class="badge badge-pill {{ badge_color }} ml-1">{{ tool }}</span>
+            {% endfor %}
+          </p>
+          <p class="featured-card-hint mb-0">Click to view project →</p>
+        </div>
+      </a>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+  <div class="text-center mt-2 wow animated fadeIn" data-wow-delay=".5s">
+    <a href="/projects/" style="color:#00ff88;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:0.15em;opacity:0.8;">
+      [ VIEW_ALL_PROJECTS → ]
+    </a>
+  </div>
+
+</div>
+
+<!-- FPS HUD Overlay — z-index:999 so crosshair is always on top -->
+<div id="fps-hud" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;pointer-events:none;font-family:'Share Tech Mono',monospace;">
 
   <!-- Mouse-tracked crosshair -->
   <div id="crosshair" style="position:fixed;pointer-events:none;transform:translate(-50%,-50%);left:50%;top:50%;">
@@ -50,7 +133,7 @@
   <div style="position:absolute;bottom:18px;left:18px;width:36px;height:36px;border-bottom:1px solid rgba(0,255,136,0.45);border-left:1px solid rgba(0,255,136,0.45);"></div>
   <div style="position:absolute;bottom:18px;right:18px;width:36px;height:36px;border-bottom:1px solid rgba(0,255,136,0.45);border-right:1px solid rgba(0,255,136,0.45);"></div>
 
-  <!-- Top center — something a real dev would write -->
+  <!-- Top center -->
   <div style="position:absolute;top:22px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;opacity:0.5;">
     <div style="width:50px;height:1px;background:rgba(0,255,136,0.5);"></div>
     <span style="color:#00ff88;font-size:9px;letter-spacing:0.3em;">TEST_GUN_COLLISION</span>
@@ -88,7 +171,6 @@
 <script>
 // ─── Scene ─────────────────────────────────────────────────────────────────
 const scene = new THREE.Scene();
-// UE5 dusk atmosphere fog — darker, moodier
 scene.fog = new THREE.FogExp2(0x1a2a3a, 0.005);
 
 const camera = new THREE.PerspectiveCamera(65, innerWidth / innerHeight, 0.1, 1000);
@@ -103,19 +185,16 @@ renderer.setSize(innerWidth, innerHeight);
 renderer.shadowMap.enabled = false;
 
 // ─── SKY DOME ──────────────────────────────────────────────────────────────
-// Large sphere enclosing the scene, painted with a UE5 dusk gradient shader
 const skyGeo = new THREE.SphereGeometry(500, 32, 16);
-// Flip normals inward
 skyGeo.scale(-1, 1, 1);
 
 const skyMat = new THREE.ShaderMaterial({
   uniforms: {
     uTime:    { value: 0.0 },
-    // Sky gradient stops (bottom → top), matching the reference screenshot
-    uHorizon: { value: new THREE.Color(0x2a3d52) },  // pale icy horizon
-    uMid:     { value: new THREE.Color(0x152535) },  // mid blue
-    uZenith:  { value: new THREE.Color(0x080e18) },  // deep dusk blue
-    uGlow:    { value: new THREE.Color(0x3a2818) },  // warm glow near horizon
+    uHorizon: { value: new THREE.Color(0x2a3d52) },
+    uMid:     { value: new THREE.Color(0x152535) },
+    uZenith:  { value: new THREE.Color(0x080e18) },
+    uGlow:    { value: new THREE.Color(0x3a2818) },
   },
   vertexShader: `
     varying vec3 vWorldPos;
@@ -130,65 +209,37 @@ const skyMat = new THREE.ShaderMaterial({
     uniform vec3 uMid;
     uniform vec3 uZenith;
     uniform vec3 uGlow;
-
     varying vec3 vWorldPos;
-
-    // Simple hash noise for cloud-like texture
-    float hash(vec2 p) {
-      return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-    }
+    float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     float noise(vec2 p) {
-      vec2 i = floor(p);
-      vec2 f = fract(p);
+      vec2 i = floor(p); vec2 f = fract(p);
       f = f*f*(3.0-2.0*f);
-      return mix(
-        mix(hash(i), hash(i+vec2(1,0)), f.x),
-        mix(hash(i+vec2(0,1)), hash(i+vec2(1,1)), f.x),
-        f.y
-      );
+      return mix(mix(hash(i), hash(i+vec2(1,0)), f.x), mix(hash(i+vec2(0,1)), hash(i+vec2(1,1)), f.x), f.y);
     }
     float fbm(vec2 p) {
       float v = 0.0, a = 0.5;
       for(int i=0;i<5;i++){ v += a*noise(p); p*=2.1; a*=0.5; }
       return v;
     }
-
     void main() {
-      // Normalise height: -1 (below horizon) → +1 (zenith)
       float h = normalize(vWorldPos).y;
-
-      // Sky gradient
       vec3 sky = mix(uHorizon, uMid,   smoothstep(-0.05, 0.35, h));
               sky = mix(sky,    uZenith, smoothstep(0.35,  0.85, h));
-
-      // Warm glow band just above horizon (sun hidden below, dusk feel)
       float glow = exp(-abs(h - 0.04) * 14.0) * 0.55;
       sky = mix(sky, uGlow, glow);
-
-      // ── Clouds ──────────────────────────────────────────────────────────
-      // Only draw clouds in a band near the horizon (h 0.0 → 0.45)
       float cloudMask = smoothstep(0.0, 0.08, h) * smoothstep(0.45, 0.18, h);
-
-      // Spherical UV for cloud noise
       vec3 n = normalize(vWorldPos);
       vec2 cloudUV = vec2(atan(n.z, n.x) / 6.2832, n.y) * vec2(3.0, 6.0);
-      cloudUV.x += uTime * 0.018; // slow drift
-
+      cloudUV.x += uTime * 0.018;
       float c = fbm(cloudUV * 1.8);
-      c = smoothstep(0.48, 0.72, c); // threshold — only dense parts
-
-      // Cloud colour: dark blue-grey undersides like the screenshot
+      c = smoothstep(0.48, 0.72, c);
       vec3 cloudDark  = vec3(0.30, 0.38, 0.50);
       vec3 cloudLight = vec3(0.72, 0.80, 0.90);
       float cloudLit = smoothstep(0.5, 0.9, c);
       vec3 cloudColor = mix(cloudDark, cloudLight, cloudLit);
-
       sky = mix(sky, cloudColor, c * cloudMask * 0.88);
-
-      // Subtle lower-haze softening
       float haze = smoothstep(0.0, -0.12, h) * 0.4;
       sky = mix(sky, uHorizon, haze);
-
       gl_FragColor = vec4(sky, 1.0);
     }
   `,
@@ -199,17 +250,16 @@ const skyMat = new THREE.ShaderMaterial({
 const skyMesh = new THREE.Mesh(skyGeo, skyMat);
 scene.add(skyMesh);
 
-// ─── GROUND PLANE (checkerboard like the screenshot) ──────────────────────
+// ─── GROUND ────────────────────────────────────────────────────────────────
 const groundGeo = new THREE.PlaneGeometry(600, 600, 80, 80);
 const groundMat = new THREE.ShaderMaterial({
   uniforms: {
     uFogColor: { value: new THREE.Color(0x1a2a3a) },
-    uColor1:   { value: new THREE.Color(0x252f38) }, // dark checker
-    uColor2:   { value: new THREE.Color(0x2e3a44) }, // light checker
+    uColor1:   { value: new THREE.Color(0x252f38) },
+    uColor2:   { value: new THREE.Color(0x2e3a44) },
   },
   vertexShader: `
-    varying vec2 vUV;
-    varying float vDist;
+    varying vec2 vUV; varying float vDist;
     void main() {
       vUV = uv;
       vec4 worldPos = modelMatrix * vec4(position, 1.0);
@@ -218,20 +268,14 @@ const groundMat = new THREE.ShaderMaterial({
     }
   `,
   fragmentShader: `
-    uniform vec3 uFogColor;
-    uniform vec3 uColor1;
-    uniform vec3 uColor2;
-    varying vec2 vUV;
-    varying float vDist;
+    uniform vec3 uFogColor; uniform vec3 uColor1; uniform vec3 uColor2;
+    varying vec2 vUV; varying float vDist;
     void main() {
-      // Checkerboard — large tiles like the UE5 default ground
       float tileSize = 0.05;
       vec2 tile = floor(vUV / tileSize);
       float checker = mod(tile.x + tile.y, 2.0);
       vec3 col = mix(uColor1, uColor2, checker);
-      // Fog fade to horizon
-      float fog = clamp(vDist / 280.0, 0.0, 1.0);
-      fog = fog * fog;
+      float fog = clamp(vDist / 280.0, 0.0, 1.0); fog = fog * fog;
       col = mix(col, uFogColor, fog);
       gl_FragColor = vec4(col, 1.0);
     }
@@ -242,7 +286,7 @@ ground.rotation.x = -Math.PI / 2;
 ground.position.y = -14;
 scene.add(ground);
 
-// ─── Distant hills silhouette (misty, like screenshot left side) ──────────
+// ─── Hills ─────────────────────────────────────────────────────────────────
 (function() {
   const hillShape = new THREE.Shape();
   hillShape.moveTo(-200, 0);
@@ -251,34 +295,23 @@ scene.add(ground);
   hillShape.bezierCurveTo(-20, 8,   0, 2,   40, 0);
   hillShape.lineTo(200, 0); hillShape.lineTo(200, -5); hillShape.lineTo(-200, -5);
   hillShape.closePath();
-
-  const extrudeSettings = { depth: 1, bevelEnabled: false };
-  const hillGeo = new THREE.ExtrudeGeometry(hillShape, extrudeSettings);
+  const hillGeo = new THREE.ExtrudeGeometry(hillShape, { depth: 1, bevelEnabled: false });
   const hillMat = new THREE.MeshBasicMaterial({ color: 0x1e2d3a, transparent: true, opacity: 0.35 });
   const hillMesh = new THREE.Mesh(hillGeo, hillMat);
   hillMesh.position.set(-30, -6, -120);
   scene.add(hillMesh);
 })();
 
-// ─── Lighting — soft dusk atmosphere ──────────────────────────────────────
-const ambientLight = new THREE.AmbientLight(0xb0c8e0, 0.7);
-scene.add(ambientLight);
-
-// Key light: low sun angle, warm
+// ─── Lighting ──────────────────────────────────────────────────────────────
+scene.add(new THREE.AmbientLight(0xb0c8e0, 0.7));
 const sunLight = new THREE.DirectionalLight(0xfce8c8, 0.6);
-sunLight.position.set(60, 8, -80);
-scene.add(sunLight);
-
-// Fill: cool blue from sky
-const fillLight = new THREE.HemisphereLight(0x152535, 0x1e2d3a, 0.5);
-scene.add(fillLight);
-
-// Original game point lights — kept exactly as before
+sunLight.position.set(60, 8, -80); scene.add(sunLight);
+scene.add(new THREE.HemisphereLight(0x152535, 0x1e2d3a, 0.5));
 const pL1 = new THREE.PointLight(0x00ff88, 2.0, 120); pL1.position.set(15, 15, 20);  scene.add(pL1);
 const pL2 = new THREE.PointLight(0xff6b35, 1.2, 120); pL2.position.set(-15,-15, 15); scene.add(pL2);
 const pL3 = new THREE.PointLight(0x0055ff, 0.8, 80);  pL3.position.set(0, 25,-10);   scene.add(pL3);
 
-// ─── Grid floor (original, kept) ──────────────────────────────────────────
+// ─── Grid ──────────────────────────────────────────────────────────────────
 const grid = new THREE.GridHelper(200, 40, 0x00ff88, 0x001a0d);
 grid.position.y = -16;
 grid.material.transparent = true;
@@ -289,7 +322,7 @@ scene.add(grid);
 const raycaster = new THREE.Raycaster();
 const mouseNDC  = new THREE.Vector2(0, 0);
 
-// ─── Target geometries & colors ────────────────────────────────────────────
+// ─── Targets ───────────────────────────────────────────────────────────────
 const COLORS = [0x00ff88, 0xff6b35, 0x00aaff, 0xffcc00, 0xff3388, 0xaa55ff];
 const GEOS = [
   new THREE.OctahedronGeometry(1.3),
@@ -298,22 +331,14 @@ const GEOS = [
   new THREE.IcosahedronGeometry(1.2),
   new THREE.DodecahedronGeometry(1.2),
 ];
+const targets = [], particles = [], tracers = [];
+let objCounter = 0;
 
-const targets   = [];
-const particles = [];
-const tracers   = [];
-let   objCounter = 0;
-
-// ─── Spawn target ──────────────────────────────────────────────────────────
 function spawnTarget(fromEdge) {
   const col  = COLORS[Math.floor(Math.random() * COLORS.length)];
   const geo  = GEOS[Math.floor(Math.random() * GEOS.length)];
-  const mat  = new THREE.MeshStandardMaterial({
-    color: col, emissive: col, emissiveIntensity: 0.3,
-    metalness: 0.7, roughness: 0.3,
-  });
+  const mat  = new THREE.MeshStandardMaterial({ color: col, emissive: col, emissiveIntensity: 0.3, metalness: 0.7, roughness: 0.3 });
   const mesh = new THREE.Mesh(geo, mat);
-
   if (!fromEdge) {
     mesh.position.set((Math.random()-0.5)*50, (Math.random()-0.5)*24, -5 - Math.random()*18);
   } else {
@@ -323,46 +348,24 @@ function spawnTarget(fromEdge) {
     else if (side === 2) mesh.position.set((Math.random()-0.5)*50,  16, -8 - Math.random()*14);
     else                 mesh.position.set((Math.random()-0.5)*50, -16, -8 - Math.random()*14);
   }
-
   objCounter++;
   const id = `OBJECT_${String(objCounter).padStart(3, '0')}`;
-
   scene.add(mesh);
-  targets.push({
-    mesh, id, col,
-    vx: (Math.random()-0.5) * 0.07,
-    vy: (Math.random()-0.5) * 0.05,
-    rx: (Math.random()-0.5) * 0.018,
-    ry: (Math.random()-0.5) * 0.024,
-    alive: true,
-  });
+  targets.push({ mesh, id, col, vx: (Math.random()-0.5)*0.07, vy: (Math.random()-0.5)*0.05, rx: (Math.random()-0.5)*0.018, ry: (Math.random()-0.5)*0.024, alive: true });
 }
 
 for (let i = 0; i < 12; i++) spawnTarget(false);
 
-// ─── Explosion particles ───────────────────────────────────────────────────
 function explode(pos, col) {
-  const count = 12 + Math.floor(Math.random() * 8);
-  for (let i = 0; i < count; i++) {
-    const g = new THREE.OctahedronGeometry(0.1 + Math.random() * 0.28, 0);
+  for (let i = 0; i < 12 + Math.floor(Math.random()*8); i++) {
+    const g = new THREE.OctahedronGeometry(0.1 + Math.random()*0.28, 0);
     const m = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 1.0 });
     const mesh = new THREE.Mesh(g, m);
-    mesh.position.copy(pos);
-    scene.add(mesh);
-    particles.push({
-      mesh,
-      vx: (Math.random()-0.5) * 0.55,
-      vy: (Math.random()-0.5) * 0.55,
-      vz: (Math.random()-0.5) * 0.35,
-      rx: Math.random() * 0.12,
-      ry: Math.random() * 0.12,
-      life: 1.0,
-      decay: 0.025 + Math.random() * 0.035,
-    });
+    mesh.position.copy(pos); scene.add(mesh);
+    particles.push({ mesh, vx:(Math.random()-0.5)*0.55, vy:(Math.random()-0.5)*0.55, vz:(Math.random()-0.5)*0.35, rx:Math.random()*0.12, ry:Math.random()*0.12, life:1.0, decay:0.025+Math.random()*0.035 });
   }
 }
 
-// ─── Bullet tracer ─────────────────────────────────────────────────────────
 function spawnTracer(from, to) {
   const geo  = new THREE.BufferGeometry().setFromPoints([from.clone(), to.clone()]);
   const mat  = new THREE.LineBasicMaterial({ color: 0xffee44, transparent: true, opacity: 1.0 });
@@ -378,14 +381,9 @@ let mouseX = innerWidth / 2, mouseY = innerHeight / 2;
 let hitmarkerTimer = 0;
 
 document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-
-  crosshairEl.style.left = mouseX + 'px';
-  crosshairEl.style.top  = mouseY + 'px';
-  hitmarkerEl.style.left = mouseX + 'px';
-  hitmarkerEl.style.top  = mouseY + 'px';
-
+  mouseX = e.clientX; mouseY = e.clientY;
+  crosshairEl.style.left = mouseX + 'px'; crosshairEl.style.top = mouseY + 'px';
+  hitmarkerEl.style.left = mouseX + 'px'; hitmarkerEl.style.top = mouseY + 'px';
   mouseNDC.x =  (mouseX / innerWidth)  * 2 - 1;
   mouseNDC.y = -(mouseY / innerHeight) * 2 + 1;
 });
@@ -408,114 +406,75 @@ function addKillfeed(id) {
 
 document.addEventListener('click', () => {
   raycaster.setFromCamera(mouseNDC, camera);
-
   const liveMeshes = targets.filter(t => t.alive).map(t => t.mesh);
   const hits = raycaster.intersectObjects(liveMeshes);
-
   const gunOrigin = new THREE.Vector3(1.5, -1.5, 35);
-
   if (hits.length > 0) {
     const hitMesh = hits[0].object;
     const tgt = targets.find(t => t.mesh === hitMesh);
     if (tgt && tgt.alive) {
       tgt.alive = false;
-
       explode(hitMesh.position, hitMesh.material.color);
       spawnTracer(gunOrigin, hits[0].point);
       scene.remove(hitMesh);
-
-      killCount++;
-      killCountEl.textContent = killCount;
+      killCount++; killCountEl.textContent = killCount;
       addKillfeed(tgt.id);
-
-      hitmarkerEl.style.opacity = '1';
-      hitmarkerTimer = 0.2;
-
+      hitmarkerEl.style.opacity = '1'; hitmarkerTimer = 0.2;
       setTimeout(() => {
         const idx = targets.indexOf(tgt);
         if (idx > -1) targets.splice(idx, 1);
         spawnTarget(true);
         hudAmmoEl.textContent = targets.filter(t => t.alive).length;
       }, 1500);
-
       hudAmmoEl.textContent = targets.filter(t => t.alive).length;
     }
   } else {
-    // Miss — tracer into void
     const dir = raycaster.ray.direction.clone().multiplyScalar(65);
     const end = camera.position.clone().add(dir);
     spawnTracer(gunOrigin, end);
   }
 });
 
-// ─── FPS ───────────────────────────────────────────────────────────────────
+// ─── Main loop ─────────────────────────────────────────────────────────────
 let frames = 0, lastFpsT = performance.now();
 const fpsEl = document.getElementById('fps-counter');
-
-// ─── Main loop ─────────────────────────────────────────────────────────────
 let t = 0;
+
 function animate() {
   requestAnimationFrame(animate);
   t += 0.01;
-
   frames++;
   const now = performance.now();
-  if (now - lastFpsT > 700) {
-    fpsEl.textContent = Math.round(frames / ((now - lastFpsT) / 1000));
-    frames = 0; lastFpsT = now;
-  }
-
-  if (hitmarkerTimer > 0) {
-    hitmarkerTimer -= 0.016;
-    if (hitmarkerTimer <= 0) hitmarkerEl.style.opacity = '0';
-  }
-
+  if (now - lastFpsT > 700) { fpsEl.textContent = Math.round(frames / ((now - lastFpsT) / 1000)); frames = 0; lastFpsT = now; }
+  if (hitmarkerTimer > 0) { hitmarkerTimer -= 0.016; if (hitmarkerTimer <= 0) hitmarkerEl.style.opacity = '0'; }
   pL1.intensity = 1.8 + Math.sin(t * 1.1) * 0.4;
   pL2.intensity = 1.0 + Math.cos(t * 0.8) * 0.3;
-
-  // Advance sky shader time (slow cloud drift)
   skyMat.uniforms.uTime.value = t;
-
-  // Rotate sky dome very slowly for cloud drift
   skyMesh.rotation.y = t * 0.004;
-
   for (const tgt of targets) {
     if (!tgt.alive) continue;
-    tgt.mesh.position.x += tgt.vx;
-    tgt.mesh.position.y += tgt.vy;
-    tgt.mesh.rotation.x += tgt.rx;
-    tgt.mesh.rotation.y += tgt.ry;
+    tgt.mesh.position.x += tgt.vx; tgt.mesh.position.y += tgt.vy;
+    tgt.mesh.rotation.x += tgt.rx; tgt.mesh.rotation.y += tgt.ry;
     if (tgt.mesh.position.x >  28 || tgt.mesh.position.x < -28) tgt.vx *= -1;
     if (tgt.mesh.position.y >  14 || tgt.mesh.position.y < -14) tgt.vy *= -1;
     tgt.mesh.material.emissiveIntensity = 0.2 + Math.sin(t * 2 + tgt.mesh.position.x) * 0.15;
   }
-
   for (let i = particles.length - 1; i >= 0; i--) {
-    const p = particles[i];
-    p.life -= p.decay;
+    const p = particles[i]; p.life -= p.decay;
     if (p.life <= 0) { scene.remove(p.mesh); particles.splice(i, 1); continue; }
-    p.mesh.position.x += p.vx;
-    p.mesh.position.y += p.vy;
-    p.mesh.position.z += p.vz;
-    p.mesh.rotation.x += p.rx;
-    p.mesh.rotation.y += p.ry;
-    p.vy -= 0.009;
-    p.mesh.material.opacity = p.life;
-    const s = p.life * 0.7 + 0.3;
-    p.mesh.scale.set(s, s, s);
+    p.mesh.position.x += p.vx; p.mesh.position.y += p.vy; p.mesh.position.z += p.vz;
+    p.mesh.rotation.x += p.rx; p.mesh.rotation.y += p.ry;
+    p.vy -= 0.009; p.mesh.material.opacity = p.life;
+    const s = p.life * 0.7 + 0.3; p.mesh.scale.set(s, s, s);
   }
-
   for (let i = tracers.length - 1; i >= 0; i--) {
     tracers[i].life -= tracers[i].decay;
     tracers[i].line.material.opacity = tracers[i].life;
     if (tracers[i].life <= 0) { scene.remove(tracers[i].line); tracers.splice(i, 1); }
   }
-
   const b = 1 + Math.sin(t * 1.8) * 0.03;
   crosshairEl.style.transform = `translate(-50%,-50%) scale(${b})`;
-
   grid.position.z = (t * 0.4) % 5;
-
   renderer.render(scene, camera);
 }
 
@@ -535,6 +494,58 @@ window.addEventListener('resize', () => {
   width: 100%; height: 100%;
   z-index: -1;
 }
-/* Hide default cursor over the whole page so crosshair takes over */
 * { cursor: none !important; }
+
+/* ── Featured project cards ───────────────────────────────────────── */
+.featured-card {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,255,136,0.25);
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.featured-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,255,136,0.8);
+  box-shadow: 0 8px 32px rgba(0,255,136,0.2);
+  text-decoration: none;
+}
+.featured-card-title {
+  color: #00ff88;
+  transition: letter-spacing 0.25s ease;
+}
+.featured-card:hover .featured-card-title {
+  letter-spacing: 0.04em;
+}
+.featured-card-hint {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(0,255,136,0.0);
+  transition: color 0.25s ease;
+}
+.featured-card:hover .featured-card-hint {
+  color: rgba(0,255,136,0.7);
+}
+
+/* ── Badge colors (copied from project-card.html) ─────────────────── */
+.badge-team       { background-color: #7c3aed !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-cpp        { background-color: #00599c !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-unreal     { background-color: #0e1128 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-unity      { background-color: #222222 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-llm        { background-color: #16a34a !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-ai         { background-color: #10b981 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-network    { background-color: #3b82f6 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-raspberry  { background-color: #c51a4a !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-json       { background-color: #facc15 !important; color: #1a1a1a !important; border: 2px solid #1a1a1a !important; }
+.badge-platform   { background-color: #64748b !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-physics    { background-color: #dc2626 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-graphics   { background-color: #ea580c !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-opengl     { background-color: #b45309 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-ecs        { background-color: #a855f7 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-plugin     { background-color: #ec4899 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-scrum      { background-color: #06b6d4 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-2d         { background-color: #14b8a6 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-3d         { background-color: #0891b2 !important; color: white !important; border: 2px solid #1a1a1a !important; }
+.badge-default    { background-color: transparent !important; color: #00ff88 !important; border: 2px solid #00ff88 !important; }
 </style>
