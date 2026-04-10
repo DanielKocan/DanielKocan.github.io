@@ -109,4 +109,51 @@
   color: rgba(255, 255, 255, 1) !important;
 }
 
+/* Bigger nav links */
+.navbar-themed .nav-item.nav-link {
+  font-size: 16px;
+}
+
+/* Animated underline on hover */
+.navbar-themed .nav-item.nav-link {
+  position: relative;
+}
+.navbar-themed .nav-item.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary); /* uses their existing theme blue */
+  transition: width 0.3s ease;
+}
+.navbar-themed .nav-item.nav-link:hover::after,
+.navbar-themed .nav-item.nav-link.active::after {
+  width: 100%;
+}
+
+/* Intro animation — slower and holds longer */
+@keyframes introUnderline {
+  0%   { width: 0%; }
+  40%  { width: 100%; }
+  70%  { width: 100%; }
+  100% { width: 0%; }
+}
+
+.navbar-themed .nav-item.nav-link.intro-flash::after {
+  animation: introUnderline 0.7s ease forwards;
+}
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.navbar-themed .nav-item.nav-link');
+  links.forEach((link, i) => {
+    setTimeout(() => {
+      link.classList.add('intro-flash');
+      setTimeout(() => link.classList.remove('intro-flash'), 750);
+    }, 300 + i * 250); // matches the 0.3s animation
+  });
+});
+</script>

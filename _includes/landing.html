@@ -2,12 +2,12 @@
 <canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;cursor:none;"></canvas>
 
 <!-- Dark overlay so white/grey text stays readable over the sky -->
-<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:rgba(0,0,0,0.6);pointer-events:none;"></div>
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:rgba(0,0,0,0.4);pointer-events:none;"></div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      HERO SECTION
 ════════════════════════════════════════════════════════════════ -->
-<div class="row justify-content-center align-items-center p-4" style="position:relative;z-index:10;">
+<div class="row justify-content-center align-items-center p-2" style="position:relative;z-index:10;margin-bottom:-0.5rem;">
   <div class="col-lg-4 col-md-6 text-center mt-4">
     <div id="container" class="my-2">
       <div id="dummy"></div>
@@ -15,7 +15,7 @@
         <img src="{{ site.author.image }}" alt="{{ site.title }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
       </div>
     </div>
-    <p class="text-muted wow animated slideInUp" data-wow-delay=".15s">{{ site.description }}</p>
+    <p class="text-muted wow animated slideInUp" data-wow-delay=".15s" style="font-size:1.25rem;font-weight:600;line-height:2rem;">{{ site.description }}</p>
   </div>
 </div>
 
@@ -23,7 +23,7 @@
 <div class="container-fluid" style="position:relative;z-index:10;padding: 4rem 2rem 3rem;">
 
   <h3 class="text-center mb-4 wow animated fadeIn" data-wow-delay=".1s"
-      style="color:#00ff88;font-family:'Share Tech Mono',monospace;letter-spacing:0.2em;">
+      style="color:#4a9eff;font-family:'Share Tech Mono',monospace;letter-spacing:0.2em;">
     // FEATURED_PROJECTS
   </h3>
 
@@ -96,7 +96,7 @@
   </div>
 
   <div class="text-center mt-2 wow animated fadeIn" data-wow-delay=".5s">
-    <a href="/projects/" style="color:#00ff88;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:0.15em;opacity:0.8;">
+    <a href="/projects/" style="color:#4a9eff;font-family:'Share Tech Mono',monospace;font-size:16px;font-weight:600;letter-spacing:0.15em;opacity:0.9;">
       [ VIEW_ALL_PROJECTS → ]
     </a>
   </div>
@@ -109,11 +109,11 @@
   <!-- Mouse-tracked crosshair -->
   <div id="crosshair" style="position:fixed;pointer-events:none;transform:translate(-50%,-50%);left:50%;top:50%;">
     <svg width="44" height="44" viewBox="0 0 44 44">
-      <line x1="22" y1="2"  x2="22" y2="14" stroke="#00ff88" stroke-width="1.5" opacity="0.95"/>
-      <line x1="22" y1="30" x2="22" y2="42" stroke="#00ff88" stroke-width="1.5" opacity="0.95"/>
-      <line x1="2"  y1="22" x2="14" y2="22" stroke="#00ff88" stroke-width="1.5" opacity="0.95"/>
-      <line x1="30" y1="22" x2="42" y2="22" stroke="#00ff88" stroke-width="1.5" opacity="0.95"/>
-      <circle cx="22" cy="22" r="1.5" fill="#00ff88" opacity="0.95"/>
+      <line x1="22" y1="2"  x2="22" y2="14" stroke="#4a9eff" stroke-width="3" opacity="0.95"/>
+      <line x1="22" y1="30" x2="22" y2="42" stroke="#4a9eff" stroke-width="3" opacity="0.95"/>
+      <line x1="2"  y1="22" x2="14" y2="22" stroke="#4a9eff" stroke-width="3" opacity="0.95"/>
+      <line x1="30" y1="22" x2="42" y2="22" stroke="#4a9eff" stroke-width="3" opacity="0.95"/>
+      <circle cx="22" cy="22" r="2.5" fill="#4a9eff" opacity="0.95"/>
     </svg>
   </div>
 
@@ -128,16 +128,16 @@
   </div>
 
   <!-- Corner brackets -->
-  <div style="position:absolute;top:18px;left:18px;width:36px;height:36px;border-top:1px solid rgba(0,255,136,0.45);border-left:1px solid rgba(0,255,136,0.45);"></div>
-  <div style="position:absolute;top:18px;right:18px;width:36px;height:36px;border-top:1px solid rgba(0,255,136,0.45);border-right:1px solid rgba(0,255,136,0.45);"></div>
-  <div style="position:absolute;bottom:18px;left:18px;width:36px;height:36px;border-bottom:1px solid rgba(0,255,136,0.45);border-left:1px solid rgba(0,255,136,0.45);"></div>
-  <div style="position:absolute;bottom:18px;right:18px;width:36px;height:36px;border-bottom:1px solid rgba(0,255,136,0.45);border-right:1px solid rgba(0,255,136,0.45);"></div>
+  <div style="position:absolute;top:18px;left:18px;width:36px;height:36px;border-top:1px solid rgba(74,158,255,0.45);border-left:1px solid rgba(74,158,255,0.45);"></div>
+  <div style="position:absolute;top:18px;right:18px;width:36px;height:36px;border-top:1px solid rgba(74,158,255,0.45);border-right:1px solid rgba(74,158,255,0.45);"></div>
+  <div style="position:absolute;bottom:18px;left:18px;width:36px;height:36px;border-bottom:1px solid rgba(74,158,255,0.45);border-left:1px solid rgba(74,158,255,0.45);"></div>
+  <div style="position:absolute;bottom:18px;right:18px;width:36px;height:36px;border-bottom:1px solid rgba(74,158,255,0.45);border-right:1px solid rgba(74,158,255,0.45);"></div>
 
   <!-- Top center -->
   <div style="position:absolute;top:22px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;opacity:0.5;">
-    <div style="width:50px;height:1px;background:rgba(0,255,136,0.5);"></div>
-    <span style="color:#00ff88;font-size:9px;letter-spacing:0.3em;">TEST_GUN_COLLISION</span>
-    <div style="width:50px;height:1px;background:rgba(0,255,136,0.5);"></div>
+    <div style="width:50px;height:1px;background:rgba(74,158,255,0.5);"></div>
+    <span style="color:#4a9eff;font-size:9px;letter-spacing:0.3em;">TEST_GUN_COLLISION</span>
+    <div style="width:50px;height:1px;background:rgba(74,158,255,0.5);"></div>
   </div>
 
   <!-- Kill feed top right -->
@@ -145,8 +145,8 @@
 
   <!-- Bottom left: targets alive -->
   <div style="position:absolute;bottom:30px;left:28px;opacity:0.75;">
-    <div style="color:#00ff88;font-size:26px;font-weight:bold;line-height:1;text-shadow:0 0 10px #00ff88;" id="hud-ammo">12</div>
-    <div style="color:#4a9e6e;font-size:9px;letter-spacing:0.25em;margin-top:2px;">TARGETS</div>
+    <div style="color:#4a9eff;font-size:26px;font-weight:bold;line-height:1;text-shadow:0 0 10px #4a9eff;" id="hud-ammo">12</div>
+    <div style="color:#4a9eff;font-size:9px;letter-spacing:0.25em;margin-top:2px;">TARGETS</div>
   </div>
 
   <!-- Bottom right: kills -->
@@ -307,12 +307,12 @@ scene.add(new THREE.AmbientLight(0xb0c8e0, 0.7));
 const sunLight = new THREE.DirectionalLight(0xfce8c8, 0.6);
 sunLight.position.set(60, 8, -80); scene.add(sunLight);
 scene.add(new THREE.HemisphereLight(0x152535, 0x1e2d3a, 0.5));
-const pL1 = new THREE.PointLight(0x00ff88, 2.0, 120); pL1.position.set(15, 15, 20);  scene.add(pL1);
+const pL1 = new THREE.PointLight(0x4a9eff, 2.0, 120); pL1.position.set(15, 15, 20);  scene.add(pL1);
 const pL2 = new THREE.PointLight(0xff6b35, 1.2, 120); pL2.position.set(-15,-15, 15); scene.add(pL2);
 const pL3 = new THREE.PointLight(0x0055ff, 0.8, 80);  pL3.position.set(0, 25,-10);   scene.add(pL3);
 
 // ─── Grid ──────────────────────────────────────────────────────────────────
-const grid = new THREE.GridHelper(200, 40, 0x00ff88, 0x001a0d);
+const grid = new THREE.GridHelper(200, 40, 0x4a9eff, 0x001a3a);
 grid.position.y = -16;
 grid.material.transparent = true;
 grid.material.opacity = 0.08;
@@ -499,19 +499,19 @@ window.addEventListener('resize', () => {
 /* ── Featured project cards ───────────────────────────────────────── */
 .featured-card {
   background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(0,255,136,0.25);
+  border: 1px solid rgba(74,158,255,0.25);
   backdrop-filter: blur(6px);
   text-decoration: none;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .featured-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0,255,136,0.8);
-  box-shadow: 0 8px 32px rgba(0,255,136,0.2);
+  border-color: rgba(74,158,255,0.8); 
+  box-shadow: 0 8px 32px rgba(74,158,255,0.2);
   text-decoration: none;
 }
 .featured-card-title {
-  color: #00ff88;
+  color: #4a9eff;
   transition: letter-spacing 0.25s ease;
 }
 .featured-card:hover .featured-card-title {
@@ -525,7 +525,7 @@ window.addEventListener('resize', () => {
   transition: color 0.25s ease;
 }
 .featured-card:hover .featured-card-hint {
-  color: rgba(0,255,136,0.7);
+  color: rgba(74,158,255,0.7);
 }
 
 /* ── Badge colors (copied from project-card.html) ─────────────────── */
@@ -547,5 +547,5 @@ window.addEventListener('resize', () => {
 .badge-scrum      { background-color: #06b6d4 !important; color: white !important; border: 2px solid #1a1a1a !important; }
 .badge-2d         { background-color: #14b8a6 !important; color: white !important; border: 2px solid #1a1a1a !important; }
 .badge-3d         { background-color: #0891b2 !important; color: white !important; border: 2px solid #1a1a1a !important; }
-.badge-default    { background-color: transparent !important; color: #00ff88 !important; border: 2px solid #00ff88 !important; }
+.badge-default    { background-color: transparent !important; color: #4a9eff !important; border: 2px solid #4a9eff !important; }
 </style>
