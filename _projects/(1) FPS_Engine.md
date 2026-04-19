@@ -43,8 +43,8 @@ Together with a team (5 more programmers) built a playable first-person shooter 
 ## Contents
 
 - [Data-Driven Weapon System](#weapon-system)
-- [Hitscan vs. Projectile — Choosing the Right Approach](#hitscan-vs-projectile)
-- [Recoil — Modelled Statistically](#recoil)
+- [Hitscan vs. Projectile - Choosing the Right Approach](#hitscan-vs-projectile)
+- [Recoil - Modelled Statistically](#recoil)
 - [Physics Collision Without Coupling](#physics-collision)
 - [Player Movement](#player-movement)
 - [What I Learned](#what-i-learned)
@@ -104,7 +104,7 @@ WeaponConfiguration("AK-47",
 
 Each struct is also registered with `VISITABLE_STRUCT`, which the engine's 
 serialization system uses to automatically save and load weapon configs to 
-disk — no manual read/write code needed per field:
+disk - no manual read/write code needed per field:
 
 ```cpp
 VISITABLE_STRUCT(bee::weapon::WeaponConfiguration,
@@ -127,11 +127,11 @@ On top of that, I built a full ImGui panel inside the engine inspector so design
 
 ---
 
-## Hitscan vs. Projectile — Choosing the Right Approach {#hitscan-vs-projectile}
+## Hitscan vs. Projectile - Choosing the Right Approach {#hitscan-vs-projectile}
 
 Real games use two completely different approaches to bullets, and they feel different. I implemented both and exposed the choice as a single boolean in the weapon config.
 
-**Hitscan** fires a ray through Jolt's narrow-phase query and resolves the hit instantly. It's correct for rifles — the bullet travels faster than the frame rate anyway, so simulating it physically adds nothing.
+**Hitscan** fires a ray through Jolt's narrow-phase query and resolves the hit instantly. It's correct for rifles - the bullet travels faster than the frame rate anyway, so simulating it physically adds nothing.
 
 ```cpp
 void WeaponsSystem::PerformRaycast(glm::vec3 rayOrigin, glm::vec3 rayDirection)
@@ -175,7 +175,7 @@ void WeaponsSystem::SpawnProjectile(const glm::vec3& scale, float speed,
 
 ---
 
-## Recoil — Modelled Statistically {#recoil}
+## Recoil - Modelled Statistically {#recoil}
 
 Most beginner recoil systems just add a fixed offset to the camera each shot. That produces recoil that feels mechanical and predictable. I wanted spray patterns that felt like real guns: consistent enough to learn, random enough to stay tense.
 
@@ -184,7 +184,7 @@ The approach: each shot samples from a **normal (Gaussian) distribution** with c
 ```cpp
 void WeaponRecoilLogic::applyRecoil(glm::quat& cameraRotation)
 {
-    // Sample from normal distribution — unpredictable but tunable
+    // Sample from normal distribution - unpredictable but tunable
     float recoilX = getRandomOffset(meanX, varianceX, canGoBeyondVariance);
     float recoilY = getRandomOffset(meanY, varianceY, canGoBeyondVariance);
 
@@ -199,7 +199,7 @@ void WeaponRecoilLogic::applyRecoil(glm::quat& cameraRotation)
     glm::quat yaw   = glm::angleAxis(glm::radians((float)accumulatedX), up);
     cameraRotation  = yaw * pitch * cameraRotation;
 
-    // Strip roll — reconstruct from forward direction to prevent camera drift
+    // Strip roll - reconstruct from forward direction to prevent camera drift
     glm::vec3 newForward     = cameraRotation * glm::vec3(0, 0, -1);
     glm::vec3 correctedRight = glm::normalize(glm::cross(glm::vec3(0, 1, 0), newForward));
     glm::vec3 correctedUp    = glm::normalize(glm::cross(newForward, correctedRight));
@@ -233,7 +233,7 @@ void WeaponCollisionListener::OnContactAdded(const JPH::Body& body1,
     bee::Entity e1 = static_cast<bee::Entity>(body1.GetUserData());
     bee::Entity e2 = static_cast<bee::Entity>(body2.GetUserData());
 
-    // Bullet hits AI agent — apply damage through the agent's interface
+    // Bullet hits AI agent - apply damage through the agent's interface
     if (IsBullet(e1) && IsAgent(e2))
         Engine.ECS().Registry.get<AgentAi>(e2)
                              .AgentHit(Engine.ECS().Registry.get<Bullet>(e1).damage);
@@ -246,7 +246,7 @@ void WeaponCollisionListener::OnContactAdded(const JPH::Body& body1,
     }
 }
 
-// Tag checks — physics system never needs to know game logic details
+// Tag checks - physics system never needs to know game logic details
 bool WeaponCollisionListener::IsBullet(bee::Entity e)
     { return Engine.ECS().Registry.try_get<Bullet>(e) != nullptr; }
 
@@ -264,7 +264,7 @@ This kept the physics layer ignorant of game logic and made it easy to add new c
 
 ## Player Movement {#player-movement}
 
-I implemented walking, running, and jumping on top of Jolt's character controller. The movement itself wasn't the hard part — getting it to feel right was.
+I implemented walking, running, and jumping on top of Jolt's character controller. The movement itself wasn't the hard part - getting it to feel right was.
 
 The character controller went through two major debugging cycles. The first was an old Jolt version incompatibility: the collision detection API had changed, which meant the approach that worked in the docs didn't compile on our codebase. Tijn (my teammate) and I tracked it down, found an alternative collision detection path that worked with our version, and got it stable.
 
