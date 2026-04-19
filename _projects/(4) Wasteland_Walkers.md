@@ -51,11 +51,11 @@ Worked extensively in Blueprints and C++ to implement key gameplay features:
 
 ### What I Learned?
 
-🤝 Effective Team Collaboration - I strengthened my communication, teamwork, and Agile practice, learning how to sync with designers, artists and other programmers smoothly.
+- Effective Team Collaboration - I strengthened my communication, teamwork, and Agile practice, learning how to sync with designers, artists and other programmers smoothly.
 
-🧠 Feature Ownership & Research - Taking ownership of a feature like DDA meant going beyond coding: I researched best practices, tested designs, gathered feedback and iterated to deliver something meaningful to the game.
+- Feature Ownership & Research - Taking ownership of a feature like DDA meant going beyond coding: I researched best practices, tested designs, gathered feedback and iterated to deliver something meaningful to the game.
 
-🔧 Problem-Solving Across Systems - From AI to UI, I worked across diverse gameplay systems, improving my debugging, system design and integration skills.
+- Problem-Solving Across Systems - From AI to UI, I worked across diverse gameplay systems, improving my debugging, system design and integration skills.
 
 
 <p class="text-center">
