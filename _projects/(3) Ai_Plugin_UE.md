@@ -8,7 +8,7 @@ order: 9
 
 # Generative AI Plugin for Unreal Engine (C++ Study Project)
 
-✨ What It Does?  ✨
+## What It Does? 
 
 **The plugin connects Unreal Engine NPCs to:**
 
@@ -33,13 +33,13 @@ order: 9
 
 ### What I Learned
 
-🔍 Research & Criteria Setting - As part of this study project, I had to research multiple technical solutions, compare them and set clear criteria for what the plugin should achieve. This taught me how to balance feasibility, performance, and user needs when planning a project.
+- Research & Criteria Setting - As part of this study project, I had to research multiple technical solutions, compare them and set clear criteria for what the plugin should achieve. This taught me how to balance feasibility, performance, and user needs when planning a project.
 
-🛠 Technical Skill Growth - I significantly improved my C++ and Unreal Engine skills, especially in areas like plugin development, engine integration and working with external libraries.
+- Technical Skill Growth - I significantly improved my C++ and Unreal Engine skills, especially in areas like plugin development, engine integration and working with external libraries.
 
-🧠 Optimization Thinking - I had to make sure the plugin runs efficiently even under stress, especially when using local models.
+- Optimization Thinking - I had to make sure the plugin runs efficiently even under stress, especially when using local models.
 
-💬 Study Planning & Reflection - Throughout the project, I set weekly goals, evaluated my progress and adapted my plans when challenges came up. I also reflected on what worked and what I’d do differently next time.
+- Study Planning & Reflection - Throughout the project, I set weekly goals, evaluated my progress and adapted my plans when challenges came up. I also reflected on what worked and what I’d do differently next time.
 
 <p class="text-center">
 {% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}

@@ -66,13 +66,13 @@ For this project, I built key components of a 2D game engine focused on pathfind
 
 ### What I Learned
 
-🔍 Deep Systems Understanding - I now understand how core gameplay systems like pathfinding, collision, and physics work under the hood - not just how to use them, but how to build them.
+- Deep Systems Understanding - I now understand how core gameplay systems like pathfinding, collision, and physics work under the hood - not just how to use them, but how to build them.
 
-⚙ Research & Structured Development - This was part of a structured study module where I had to research solutions, define criteria, and deliver specific engine functionalities each week: similar to a real sprint cycle.
+- Research & Structured Development - This was part of a structured study module where I had to research solutions, define criteria, and deliver specific engine functionalities each week: similar to a real sprint cycle.
 
-🧠 Problem-Solving Under Pressure - Some features (especially collision handling and combining physics with gameplay) were much harder than they looked. I learned to break big problems into manageable parts, prioritize, and iterate.
+- Problem-Solving Under Pressure - Some features (especially collision handling and combining physics with gameplay) were much harder than they looked. I learned to break big problems into manageable parts, prioritize, and iterate.
 
-💬 Engine/Gameplay Separation - I practiced keeping engine systems (like pathfinding or physics) cleanly separated from gameplay code - an essential discipline for scalable, maintainable projects.
+- Engine/Gameplay Separation - I practiced keeping engine systems (like pathfinding or physics) cleanly separated from gameplay code - an essential discipline for scalable, maintainable projects.
 
 
 <p class="text-center">

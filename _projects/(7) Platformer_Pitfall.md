@@ -11,7 +11,7 @@ This project was my first project at BUAS and a personal deep dive into building
 
 ![preview](../assets/projects/PlatformerPitfall/Frog.gif)
 
-# ✨ Core Features I Built
+# Core Features I Built
 ### Custom Rendering System
 
 * Designed a tile-based map renderer to load and display levels using data from Tiled.
@@ -44,7 +44,7 @@ This project was my first project at BUAS and a personal deep dive into building
 
 ![preview](../assets/projects/PlatformerPitfall/main.gif)
 
-# 💡 What I Learned
+# What I Learned
 This was one of my most valuable learning experiences because:
 
 * I built almost all core systems myself: rendering from Tiled, input, physics, collisions, state management.

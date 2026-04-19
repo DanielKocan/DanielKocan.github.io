@@ -17,7 +17,7 @@ A multiplayer networking plugin I built from scratch that makes it easy to creat
 ### [LINK TO GITHUB REPOSITORY](https://github.com/DanielKocan/EasyMatchmaking?tab=readme-ov-file)
        
 
-### 🔥 My Development Journey 🔥
+### My Development Journey
 
 #### Week 1-2: Research & "Why Does This Have to Be So Hard?"
 

@@ -12,7 +12,7 @@ This was a hardware-constrained project, so I had to optimize performance carefu
 
 ![preview](../assets/projects/RaspberryPI3DPitfall/main.gif)
 
-# ✨ Core Features I Built
+# Core Features I Built
 ### Physics-Driven World
 
 * Set up a full Bullet physics world, populating it with rigid bodies and managing physical interactions.
@@ -49,7 +49,7 @@ This was a hardware-constrained project, so I had to optimize performance carefu
 
 ![preview](../assets/projects/RaspberryPI3DPitfall/gameplay.gif)
 
-# 💡 What I Learned
+# What I Learned
 This project gave me hands-on experience with:
 
 * Low-level graphics programming using OpenGL
