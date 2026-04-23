@@ -38,6 +38,8 @@ We were given a bare-bones engine that could draw lines and manage entities. Eve
 - Circle-circle and circle-polygon collision detection with impulse resolution
 - Playable game combining all systems: agents chase player, bullets bounce and destroy on hit
 
+[View source code on GitHub](https://github.com/DanielKocan/Pathfinding-Physics-2D)
+
 ---
 
 ## Contents
