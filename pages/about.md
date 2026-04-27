@@ -12,6 +12,9 @@ weight: 3
 
 I am **{{ site.author.name }}**,<br>
 Game programming student specializing in Unreal Engine development across gameplay, tools, network, custom plugins, and AI systems. <br>
+
+Originally I am from Lithuania, from a small town of 7,000 people named Šalčininkai. I grew up in a small town, but I always had a big dream of creating video games, since they have been my main hobby throughout my life - which is why I started my studies at BUAS in the Netherlands. My favorite quote is: although the pixels might not be real, the memories from video games are 😊
+
 <br>
 
 ### 🔍 Looking for an internship starting September 2026 related to Unreal Engine or C++ game programming! 😁
