@@ -3,7 +3,7 @@ name: Gameplay & DDA Programming with team in Unreal Engine - Wasteland Walkers
 tools: [Team Project, Unreal Engine, C++, Blueprints, SCRUM]
 image: /assets/projects/WastelandWalkers/main.gif
 description: Built the minimap, dynamic difficulty system, turrets, and co-op collision logic for a 4-player Unreal Engine co-op game over 8 weeks with a multidisciplinary team.
-order: 4
+order: 5
 ---
 
 # Gameplay & DDA Programming - Wasteland Walkers

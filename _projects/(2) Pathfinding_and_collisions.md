@@ -3,7 +3,7 @@ name: Pathfinding, Physics & Gameplay - 2D Engine in C++
 tools: [C++, PC, Custom Physics, ECS, A*, NavMesh]
 image: /assets/projects/PathfindingAndCollisions/CustomCollisinAndShootingGif.gif
 description: Built A* pathfinding, a triangulated navigation mesh, and a 2D physics engine from scratch in C++, then combined them into a playable game.
-order: 3
+order: 4
 ---
 
 # Pathfinding, Physics & Gameplay - 2D Engine in C++
