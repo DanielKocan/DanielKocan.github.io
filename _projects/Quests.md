@@ -1,7 +1,7 @@
 ---
 name: Quest Graph System - Unreal Engine
 tools: [Unreal Engine, Team Project, C++, DlgSystem Plugin]
-image: /assets/projects/QuestSystem/Example.png
+image: /assets/projects/QuestSystem/Icon.jpeg
 description: A full quest pipeline for a 22-person student team game. Visual graph editor, runtime quest manager, designer-owned completion logic via blueprint, dialogue plugin integration, debug overlays, and save/load. Built with C++.
 order: 3
 ---
