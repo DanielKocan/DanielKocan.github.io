@@ -2,7 +2,7 @@
 name: Quest Graph System - Unreal Engine
 tools: [Unreal Engine, Team Project, C++, DlgSystem Plugin]
 image: /assets/projects/QuestSystem/Example.png
-description: A full quest pipeline for a 22-person student team game. Visual graph editor, runtime quest manager, dialogue plugin integration, debug overlays, and save/load. All in C++.
+description: A full quest pipeline for a 22-person student team game. Visual graph editor, runtime quest manager, designer-owned completion logic via blueprint, dialogue plugin integration, debug overlays, and save/load. Built with C++.
 order: 3
 ---
 
@@ -146,8 +146,6 @@ The editor module registers custom pin and node factories at startup. Each pin t
 
 One of the trickier parts was understanding how save and reload work. The visual graph and the runtime graph are two completely separate data structures in Unreal. Two functions handle the conversion: `UpdateWorkingAssetFromGraph()` serialises the visual state into runtime data on save, and `UpdateEditorGraphFromWorkingAsset()` rebuilds all the visual nodes from the saved data when you reopen the asset. The node info class is shared between both using `DuplicateObject`, which avoids writing two separate data structures for the same information.
 
-![Graph editor](../assets/projects/QuestSystem/WorksData.png)
-
 <video width="800" height="500" controls muted>
   <source src="../assets/projects/QuestSystem/GraphWorks.mp4" type="video/mp4">
 </video>
@@ -199,6 +197,10 @@ void UQuestManager::LoadQuestsFromAsset(UEasyQuestAsset* QuestAsset)
 ```
 
 After the three passes, `LoadProgress()` restores any saved state on top of the freshly initialised pool.
+
+Example screenshot showing how quest descriptions goes into the UI based on player progression:
+
+![Graph editor](../assets/projects/QuestSystem/WorksData.png)
 
 ---
 
@@ -264,10 +266,9 @@ TArray<FString> AQuestTriggerActor::GetQuestNameOptions() const
 #endif
 ```
 
-The actor also owns the tracker update. Designers call `PushTrackerUpdate()` from Blueprint with an array of criteria and a "comeback" message. The manager creates the tracker widget on demand if it does not exist yet.
+The actor also owns the tracker update. Designers can call for example `PushTrackerUpdate()` from Blueprint with an array of criteria and a "comeback" message. The manager creates the tracker widget UI on demand if it does not exist yet.
 
-![Custom DLG quest node in the dialogue graph](../assets/projects/QuestSystem/Conditions%20for%20quests.png)
-
+Designers place a **QuestTriggerActor** in the level and assign which quest it watches. From there, they have full freedom in Blueprint - they can define custom completion conditions, run logic when the quest becomes active, when it completes, or on every tick while it's active. This means programmers never need to touch the system for new quest types - a designer can wire up anything from "collect 5 cats" to "talk to this NPC in this order" entirely in Blueprint!
 
 <video width="800" height="500" controls muted>
   <source src="../assets/projects/QuestSystem/QuestSystemWorks.mp4" type="video/mp4">
@@ -276,6 +277,11 @@ The actor also owns the tracker update. Designers call `PushTrackerUpdate()` fro
 When creating a QuestTriggerActor, you assign which quest it should watch directly in the details panel. The available quests are automatically populated from the graph asset at edit time, so designers just pick from a dropdown - no typing, no typos :)
 
 ![Custom DLG quest node in the dialogue graph](../assets/projects/QuestSystem/AutmaticUpdateForEasyGrab.png)
+
+Below is a simple example of possible setup inside TriggerActor blueprint: 
+
+![Custom DLG quest node in the dialogue graph](../assets/projects/QuestSystem/Conditions%20for%20quests.png)
+
 ---
 
 ## DlgSystem Integration
@@ -341,6 +347,8 @@ Both types use the same quest name dropdown populated from the live graph asset 
 
 ![Custom DLG quest node in the dialogue graph](../assets/projects/QuestSystem/customnodeforDlg.png)
 
+Below is a video showing how an example NPC (Mr. Cube) provides new dialogue options depending on completed quests. (I also created a custom node that allows quests to be revealed directly from dialogue, so the full quest logic can live inside the dialogue graph!)
+
 <video width="800" height="500" controls muted>
   <source src="../assets/projects/QuestSystem/ExpectedBehavior (1).mp4" type="video/mp4">
 </video>
@@ -353,7 +361,7 @@ Below is the small architecture overview to demonstrate how are things connected
 
 ## GameDataTracker
 
-Quests need to know things about the world - how many cats the player caught, what difficulty is set, which NPC was last spoken to. I built `GameDataTrackerSubsystem`, a `GameInstanceSubsystem` that works as a typed key/value store for session data backed by a DataTable.
+Quests need to know things about the world - how many cats the player caught (for our game), what difficulty is set, which NPC was last spoken to. I built `GameDataTrackerSubsystem`, a `GameInstanceSubsystem` that works as a typed key/value store for session data backed by a DataTable.
 
 All valid keys are defined once in the DataTable with their expected type. Recording with the wrong type or an unknown key logs a warning and returns false. Keys also have C++ constants in `GameDataTrackerKeys.h`. At startup the subsystem cross-checks the DataTable against those constants and logs any mismatches, so nothing slips through silently:
 
@@ -374,6 +382,8 @@ for (const FName& CppKey : GameDataTrackerKeys::AllKeys)
             *CppKey.ToString());
 #endif
 ```
+
+Yes, it allows you to bind variables from Blueprints to C++ and use them directly!
 
 Blueprint code uses a `UGameDataTrackerBPLibrary` wrapper with one-line calls. The key dropdown in those Blueprint nodes is populated from the DataTable at edit time, so designers cannot accidentally use an invalid key.
 
@@ -419,6 +429,8 @@ void UQuestSaveGame::Save(UQuestManager* Manager)
 ```
 
 Saving triggers on every quest completion, on `QuestManager::Deinitialize`, and on the `PreLoadMap` delegate during level transitions. The `PreLoadMap` guard is important - without it, traveling to the main menu calls `Deinitialize` on an empty pool and overwrites a valid save with nothing.
+
+The video below shows that quest progression is saved when exiting the game, and resets properly when the save is deleted.
 
 <video width="800" height="500" controls muted>
   <source src="../assets/projects/QuestSystem/WorksSAving.mp4" type="video/mp4">
