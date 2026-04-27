@@ -16,7 +16,7 @@ order: 3
 
 I built the quest system for a 22-person student team project. The goal was to give designers full ownership over quest creation - they needed to author quest chains, define dependencies between quests, hook them up to dialogue, and do all of it without writing code or waiting for a programmer. I built the whole pipeline: a custom graph editor, runtime manager, dialogue plugin integration, debug overlays, and save/load.
 
-[View source on GitHub](#)
+[View source on GitHub](https://github.com/DanielKocan/EasyQuest)
 
 </div>
 <div class="col-md-6" markdown="1">
@@ -449,3 +449,7 @@ I used Slate directly rather than UMG because these overlays needed to live enti
 **Reading plugin source code is faster than working around it.** The DlgSystem integration worked because I spent time understanding the plugin internals before writing anything. Once I saw how the selector node worked, adding my own type took an afternoon. Choosing an open source plugin specifically so I could read the source paid off.
 
 **Building for other people changes how you write code.** The quest name dropdowns, the trigger actor, the Blueprint library all came from conversations with designers about what was annoying. Each one took a few extra hours to build. After that, typos and mismatched quest names stopped being a category of bug.
+
+<p class="text-center">
+{% include elements/button.html link="https://danielkocan.github.io/projects/" text="Go Back" %}
+</p>
